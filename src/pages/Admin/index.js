@@ -1,12 +1,27 @@
 import React from 'react';
-import Header from '../../components/Header';
+import { makeStyles } from '@mui/styles';
+
+import Header from '../../components/Admin/Header';
+import Aside from '../../components/Admin/Aside';
+import MainPage from '../../components/Admin/MainPage';
+
+const useStyles = makeStyles(() => ({
+  container: {
+    display: 'grid',
+    gridTemplateColumns: '200px 1fr',
+  },
+}));
 
 const Admin = () => {
-
+  const styles = useStyles();
   return (
-    <div>
+    <>
       <Header/>
-    </div>
+      <div className={styles.container}>
+        <Aside />
+        <MainPage />
+      </div>
+    </>
   );
 }
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from '../../components/Admin/Header';
 
 const Home = () => {
 
   return (
     <div>
-      <Header/>
+      <p>This is homepage</p>
     </div>
   );
 }

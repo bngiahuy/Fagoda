@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 
 // use default theme
@@ -20,14 +21,16 @@ const theme = createTheme({
     
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />}></Route>
           <Route path="/admin" element={<Admin />} />
-        </Routes>  
+          <Route path="/home" element={<Home />} />
+        </Routes>
       </BrowserRouter>
-    </ThemeProvider>
-  );
+    </div>
+  )
 }
 
 export default App;

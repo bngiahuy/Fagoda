@@ -1,6 +1,27 @@
-* {
-    position: relative;
-    width: 1280px;
-    height: 720px;
-    background: #F0F2F5;
+.profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F0F2F5;
+    height: calc(100vh - 50px);
+    width: 100vw;
+}
+.profile .content {
+    position: absolute;
+    width: 587px;
+    height: 350px;
+    left: 344px;
+    top: 52px;
+
+}
+
+.content .cover-img {
+    position: absolute;
+    width: 586px;
+    height: 153px;
+    left: 0px;
+    top: 0px;
+}
+.seperator {
+    height: 1px;
+    background-color: #ced0d4;
 }

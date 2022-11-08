@@ -33,7 +33,7 @@ export const Header = () => {
           alt="logo"
           src={Logo}
           className="logoHeader"
-          onClick={() => navigate("/Home")}
+          onClick={() => navigate("/home")}
         />
       </IconButton>
       <Button
@@ -47,7 +47,7 @@ export const Header = () => {
           position: "fixed",
           left: "150px",
         }}
-        onClick={() => navigate("/Profile")}
+        onClick={() => navigate("/profile")}
       >
         Johnny Nguyễn
       </Button>
@@ -76,7 +76,10 @@ export const Header = () => {
       <IconButton style={{ position: "fixed", right: "170px" }}>
         <img alt="messages" src={Messages} className="imageHeader" />
       </IconButton>
-      <IconButton style={{ position: "fixed", right: "120px" }}>
+      <IconButton
+        style={{ position: "fixed", right: "120px" }}
+        onClick={() => navigate("/cancelled_order")}
+      >
         <img alt="cart" src={Cart} className="imageHeader" />
       </IconButton>
       <IconButton style={{ position: "fixed", right: "70px" }}>

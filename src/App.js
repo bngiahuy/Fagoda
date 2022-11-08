@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import Profile from "./pages/Profile";
 
 // use default theme
 // const theme = createTheme();
@@ -31,6 +32,7 @@ function App() {
             <Route path="/" element={<Navigate to="/home" replace />}></Route>
             <Route path="/admin" element={<Admin />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/profile" element={<Profile/>} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

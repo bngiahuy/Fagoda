@@ -2,15 +2,46 @@
     width: 300px;
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
     background-color: white;
+    position: relative;
+    right: 0;
+    overflow-y: auto;
 }
 
-.seperator {
-    height: 1px;
-    background-color: #ced0d4;
-}
-
-.image {
+.imageRight {
     width: 40px;
     height: 40px;
     border-radius: 5px;
+    margin-left: 10px;
+}
+
+.mainTitle {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    height: 50px;
+}
+
+.contentRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-transform: none;
+    color: black;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.company {
+    font-size: 10px;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }

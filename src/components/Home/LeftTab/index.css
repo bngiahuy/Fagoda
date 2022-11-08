@@ -2,4 +2,34 @@
     width: 300px;
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
     background-color: white;
+    position: relative;
+    left: 0;
+    overflow-y: auto;
+}
+
+.imageLeft {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.itemList {
+    margin-left: 40px;
+}
+
+.titleLeft {
+    display: flex;
+    align-items: flex-start;
+    text-transform: none;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.contentLeft {
+    display: flex;
+    align-items: flex-start;
+    text-transform: none;
+    color: black;
+    font-size: 13px;
 }

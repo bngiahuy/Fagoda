@@ -7,13 +7,15 @@ import { Header } from "./components/Header";
 const App = () => {
   return (
     <div>
-      <Header />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />}></Route>
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
+        <Header />
+        <div style={{position: "fixed", top: "50px"}}>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />}></Route>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   )

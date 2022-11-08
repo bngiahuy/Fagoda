@@ -2,6 +2,11 @@
     display: flex;
     justify-content: space-between;
     background-color: #F0F2F5;
-    position: relative;
-    top: 50px;
+    height: calc(100vh - 50px);
+    width: 100vw;
+}
+
+.seperator {
+    height: 1px;
+    background-color: #ced0d4;
 }

@@ -1,0 +1,53 @@
+.centerTab {
+    width: 600px;
+    position: fixed;
+    left: calc(50% - 300px);
+}
+
+.filter {
+    width: 600px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.imageFilter {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.titleFilter {
+    font-size: 13px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.allFilter {
+    display: flex;
+}
+
+.keyword {
+    margin-left: 10px;
+    background-color: #F0F2F5;
+    border-radius: 25px;
+    font-size: 13px;
+    height: 30px;
+    padding-left: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.imageKeyword {
+    width: 20px;
+    height: 20px;
+}
+
+.newsfeed {
+    display: flex;
+    justify-content: center;
+}

@@ -15,20 +15,25 @@ const theme = createTheme({
     },
     secondary: {
       main: '#00B4D8'
-    }
+    },
+    tertiary: {
+      main: '#90E0EF'
+    },
   }
 });
     
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />}></Route>
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />}></Route>
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </div>
   )
 }

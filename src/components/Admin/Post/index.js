@@ -21,12 +21,12 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const MainPage = () => {
+const Post = () => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
-        <h3 className={styles.title}>TRANG CHỦ</h3>
+        <h3 className={styles.title}>BÀI VIẾT</h3>
       </div>
       <div className={styles.content}>  
 
@@ -35,4 +35,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Post;

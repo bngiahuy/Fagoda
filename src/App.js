@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile";
 import { Header } from "./components/Header";
 
 const App = () => {

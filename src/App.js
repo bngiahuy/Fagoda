@@ -4,6 +4,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Profile from "./components/Profile";
+import CancelledOrder from "./pages/CancelledOrder";
+import { height } from "@mui/system";
 
 // use default theme
 // const theme = createTheme();
@@ -28,16 +30,18 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />}></Route>
             <Route path="/admin" element={<Admin />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile/>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/cancelled_order" element={<CancelledOrder />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
     </div>
-  )
-}
+  );
+};
 
 export default App;

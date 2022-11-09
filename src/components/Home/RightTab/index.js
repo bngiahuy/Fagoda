@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./index.css";
 import { ItemList } from "./ItemList";
 import { Contact } from "./Contact";
-import BaNaHill from "../../../assets/Home/RightTab/BaNaHill.jpg";
-import TrangAn from "../../../assets/Home/RightTab/TrangAn.jpg";
+import BaNaHill from "assets/Home/RightTab/BaNaHill.jpg";
+import TrangAn from "assets/Home/RightTab/TrangAn.jpg";
 
 export const RightTab = () => {
   const [advertisement, setAdvertisement] = useState({

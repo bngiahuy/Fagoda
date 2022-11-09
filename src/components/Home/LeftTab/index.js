@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./index.css"
+import "./index.css";
 import { ItemList } from "./ItemList";
-import Inter from "assets/Home/LeftTab/International.png";
-import Domestic from "assets/Home/LeftTab/domestic.png";
-import Business from "assets/Home/LeftTab/business.png";
+import Inter from "../../../assets/Home/LeftTab/International.png";
+import Domestic from "../../../assets/Home/LeftTab/domestic.png";
+import Business from "../../../assets/Home/LeftTab/business.png";
 
 export const LeftTab = () => {
-  const [chosen, setChosen] = useState({ name: "Quốc Tế", index: 0 })
+  const [chosen, setChosen] = useState({ name: "Quốc Tế", index: 0 });
 
   const [international, setInternational] = useState({
     name: "Quốc Tế",
@@ -53,4 +53,4 @@ export const LeftTab = () => {
       />
     </div>
   );
-}
+};

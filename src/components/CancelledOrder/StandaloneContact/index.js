@@ -4,7 +4,7 @@ import { Avatar, Button } from "@mui/material";
 import "./index.css";
 
 const StandaloneContact = () => {
-  const [listFriend, setListFriend] = useState([
+  const [listFriend] = useState([
     {
       url: AVT,
       name: "Hoàng Nhật Hà",

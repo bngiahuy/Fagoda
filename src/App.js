@@ -31,6 +31,9 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+        <Routes>
+          <Route path="/signin" element={<SignIn />} />
+        </Routes>
           <Header />
           <div style={{ position: "fixed", top: "50px" }}>
             <Routes>
@@ -39,7 +42,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/cancelled_order" element={<CancelledOrder />} />
-              <Route path="/signin" element={<SignIn />} />
+              
             </Routes>
           </div>
         </BrowserRouter>

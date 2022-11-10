@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import filter from "../../../../assets/Home/CenterTab/filter.png";
-import Add from "../../../../assets/Home/CenterTab/add.png";
-import Delete from "../../../../assets/Home/CenterTab/delete.png";
+import filter from "assets/Home/CenterTab/filter.png";
+import Add from "assets/Home/CenterTab/add.png";
+import Delete from "assets/Home/CenterTab/delete.png";
 import { IconButton } from "@mui/material";
 
 export const Filter = () => {

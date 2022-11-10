@@ -1,5 +1,5 @@
 import React from "react";
-import DropDown from "../../../../assets/Home/LeftTab/DropDown.png";
+import DropDown from "assets/Home/LeftTab/DropDown.png";
 import { Button } from "@mui/material";
 
 export const ItemList = ({ content, setContent, chosen, setChosen }) => {

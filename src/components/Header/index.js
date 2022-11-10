@@ -1,13 +1,13 @@
 import React from "react";
 import "./index.css";
-import Logo from "../../assets/Header/logo.png";
-import AVT from "../../assets/Header/user.png";
-import Search from "../../assets/Header/search.png";
-import Notification from "../../assets/Header/notification.png";
-import Messages from "../../assets/Header/messages.png";
-import Cart from "../../assets/Header/cart.png";
-import Setting from "../../assets/Header/setting.png";
-import Logout from "../../assets/Header/logout.png";
+import Logo from "assets/Header/logo.png";
+import AVT from "assets/Header/user.png";
+import Search from "assets/Header/search.png";
+import Notification from "assets/Header/notification.png";
+import Messages from "assets/Header/messages.png";
+import Cart from "assets/Header/cart.png";
+import Setting from "assets/Header/setting.png";
+import Logout from "assets/Header/logout.png";
 import {
   Avatar,
   Button,

@@ -22,10 +22,11 @@
   justify-content: center;
   font-size: 20px;
   padding-top: 20px;
+  font-weight: bolder;
 }
 
 .waiting-content {
-  padding: 0 50px;
+  padding: 0 70px;
 }
 
 .subtitle {
@@ -46,11 +47,12 @@
 
 .each-tour {
   display: flex;
+  font-size: 14px;
   /* justify-content: space-around; */
 }
 
 .tour-detail {
-  padding: 10px 0;
+  padding: 5px 0;
   display: flex;
   align-items: center;
   border-bottom: 2px solid #d9d9d9;
@@ -67,4 +69,29 @@
   border-radius: 5px;
   border: 2px solid;
   padding: 1px;
+}
+
+.company-star {
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.company-star img {
+  width: 15px;
+  height: 15px;
+}
+.company-detail {
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  align-items: flex-start;
+}
+
+.company-info {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
 }

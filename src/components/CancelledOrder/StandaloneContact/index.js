@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import AVT from "assets/Home/RightTab/avatar.png";
 import { Avatar, Button } from "@mui/material";
+import "./index.css";
 
-export const Contact = () => {
+const StandaloneContact = () => {
   const [listFriend, setListFriend] = useState([
     {
       url: AVT,
@@ -24,7 +25,7 @@ export const Contact = () => {
 
   return (
     <div className="standalone-contact">
-      <div className="mainTitle">Người liên hệ</div>
+      <div className="mainTitleRightTab">Người liên hệ</div>
       {listFriend.map((item) => (
         <Button
           fullWidth
@@ -49,3 +50,5 @@ export const Contact = () => {
     </div>
   );
 };
+
+export default StandaloneContact;

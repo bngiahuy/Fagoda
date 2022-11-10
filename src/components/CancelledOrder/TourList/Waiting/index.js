@@ -4,28 +4,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import cancel from "assets/CancelledOrder/remove.png";
 import { Avatar } from "@mui/material";
 import AVT from "assets/Header/user.png";
-
+import filledStar from "assets/Home/CenterTab/filledStar.png";
+import emptyStar from "assets/Home/CenterTab/emptyStar.png";
 const Waiting = () => {
-  // const columns = [
-  //   { field: "id", headerName: "ID", width: 70 },
-  //   { field: "firstName", headerName: "First name", width: 130 },
-  //   { field: "lastName", headerName: "Last name", width: 130 },
-  //   {
-  //     field: "age",
-  //     headerName: "Age",
-  //     type: "number",
-  //     width: 90,
-  //   },
-  //   {
-  //     field: "fullName",
-  //     headerName: "Full name",
-  //     description: "This column has a value getter and is not sortable.",
-  //     sortable: false,
-  //     width: 160,
-  //     valueGetter: (params) =>
-  //       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  //   },
-  // ];
+  const star = [1, 1, 1, 0];
 
   const [listTour] = useState([
     {
@@ -67,19 +49,19 @@ const Waiting = () => {
       <div className="waiting-content">
         <div className="subtitle">
           <ul>
-            <li style={{ width: "100px" }}>Mã tour</li>
-            <li style={{ width: "200px" }}>Số yêu cầu hủy</li>
-            <li style={{ width: "300px" }}>Tour</li>
-            <li style={{ width: "250px" }}>Đơn vị tổ chức</li>
+            <li style={{ width: "120px" }}>Mã tour</li>
+            <li style={{ width: "150px" }}>Số yêu cầu hủy</li>
+            <li style={{ width: "180px" }}>Tour</li>
+            <li style={{ width: "200px" }}>Đơn vị tổ chức</li>
             <li style={{ width: "150px" }}>Ngày khởi hành</li>
           </ul>
         </div>
         {listTour.map((item) => (
           <div className="each-tour">
-            <div style={{ width: "100px" }} className="tour-detail">
+            <div style={{ width: "120px" }} className="tour-detail">
               <Button> {item.ID}</Button>
             </div>
-            <div style={{ width: "200px" }} className="tour-detail">
+            <div style={{ width: "150px" }} className="tour-detail">
               <span>{item.quantity}</span>{" "}
               <img
                 alt="waiting"
@@ -87,7 +69,7 @@ const Waiting = () => {
                 style={{ width: "30px", height: "30px", marginLeft: "10px" }}
               />
             </div>
-            <div style={{ width: "300px" }} className="tour-detail">
+            <div style={{ width: "180px" }} className="tour-detail">
               <div className="tour-location">
                 <div
                   className="location-detail"
@@ -104,10 +86,22 @@ const Waiting = () => {
                 <div style={{ color: "#7C7C7C" }}>{item.name}</div>
               </div>
             </div>
-            <div style={{ width: "250px" }} className="tour-detail">
-              <div className="company-detail"></div>
-              <Avatar alt="avatar" src={AVT} sx={{ width: 30, height: 30 }} />
-              {item.company}
+            <div style={{ width: "200px" }} className="tour-detail">
+              <div className="company-detail">
+                <div className="company-info">
+                  <Avatar
+                    alt="avatar"
+                    src={AVT}
+                    sx={{ width: 30, height: 30 }}
+                  />
+                  <div>{item.company}</div>
+                </div>
+                <div className="company-star">
+                  {star.map((item) => (
+                    <img alt="filledStar" src={item ? filledStar : emptyStar} />
+                  ))}
+                </div>
+              </div>
             </div>
             <div style={{ width: "150px" }} className="tour-detail">
               {item.depart}

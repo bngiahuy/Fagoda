@@ -16,7 +16,7 @@ import { SignUp } from "./components/SignUp";
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#03045E'
+      main: '#2984FF'
     },
     secondary: {
       main: '#00B4D8'
@@ -32,10 +32,12 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+
           <Routes>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
+
           <Header />
           <div style={{ position: "fixed", top: "50px" }}>
             <Routes>
@@ -44,6 +46,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/cancelled_order" element={<CancelledOrder />} />
+
             </Routes>
           </div>
         </BrowserRouter>

@@ -8,6 +8,7 @@ import CancelledOrder from "./pages/CancelledOrder";
 import { height } from "@mui/system";
 import { Header } from "./components/Header";
 import { SignIn } from "./components/SignIn";
+import { SignUp } from "./components/SignUp";
 // use default theme
 // const theme = createTheme();
 
@@ -31,9 +32,12 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-        <Routes>
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
+
+          <Routes>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+
           <Header />
           <div style={{ position: "fixed", top: "50px" }}>
             <Routes>
@@ -42,7 +46,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/cancelled_order" element={<CancelledOrder />} />
-              
+
             </Routes>
           </div>
         </BrowserRouter>

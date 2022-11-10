@@ -1,49 +1,51 @@
 import React, { useState } from "react";
-import "./index.css"
+import "./index.css";
 import { ItemList } from "./ItemList";
 import { Contact } from "./Contact";
-import BaNaHill from "assets/Home/RightTab/BaNaHill.jpg"
-import TrangAn from "assets/Home/RightTab/TrangAn.jpg"
+import BaNaHill from "../../../assets/Home/RightTab/BaNaHill.jpg";
+import TrangAn from "../../../assets/Home/RightTab/TrangAn.jpg";
 
 export const RightTab = () => {
   const [advertisement, setAdvertisement] = useState({
     title: "Được tài trợ",
-    itemList:
-      [{
+    itemList: [
+      {
         url: BaNaHill,
         title: "Bà nà Hill - Đường lên tiên cảnh",
-        company: "Công ty Du lịch Phú Thịnh"
+        company: "Công ty Du lịch Phú Thịnh",
       },
       {
         url: BaNaHill,
         title: "Bà nà Hill - Đường lên tiên cảnh",
-        company: "Công ty Du lịch Phú Thịnh"
+        company: "Công ty Du lịch Phú Thịnh",
       },
       {
         url: BaNaHill,
         title: "Bà nà Hill - Đường lên tiên cảnh",
-        company: "Công ty Du lịch Phú Thịnh"
-      }],
+        company: "Công ty Du lịch Phú Thịnh",
+      },
+    ],
   });
 
   const [promotion, setPromotion] = useState({
     title: "Ưu đãi đặc biệt",
-    itemList:
-      [{
+    itemList: [
+      {
         url: TrangAn,
         title: "Lạc vào tiên cảnh Tràng An",
-        company: "Giá chỉ từ 12.600.000đ"
+        company: "Giá chỉ từ 12.600.000đ",
       },
       {
         url: TrangAn,
         title: "Lạc vào tiên cảnh Tràng An",
-        company: "Giá chỉ từ 12.600.000đ"
+        company: "Giá chỉ từ 12.600.000đ",
       },
       {
         url: TrangAn,
         title: "Lạc vào tiên cảnh Tràng An",
-        company: "Giá chỉ từ 12.600.000đ"
-      }]
+        company: "Giá chỉ từ 12.600.000đ",
+      },
+    ],
   });
 
   return (
@@ -55,4 +57,4 @@ export const RightTab = () => {
       <Contact />
     </div>
   );
-}
+};

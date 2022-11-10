@@ -4,16 +4,14 @@ import React from "react";
 export const ItemList = ({ content }) => {
   return (
     <>
-      <div className="mainTitle">
-        {content.title}
-      </div>
-      {content.itemList.map((item) =>
+      <div className="mainTitle">{content.title}</div>
+      {content.itemList.map((item) => (
         <Button
           fullWidth
           startIcon={<img src={item.url} className="imageRight" />}
           style={{
             display: "flex",
-            justifyContent: "flex-start"
+            justifyContent: "flex-start",
           }}
         >
           <div className="contentRight">
@@ -21,12 +19,12 @@ export const ItemList = ({ content }) => {
             <span className="company">{item.company}</span>
           </div>
         </Button>
-      )}
+      ))}
       <div className="more">
         <Button
           style={{
             textTransform: "none",
-            fontSize: "10px"
+            fontSize: "10px",
           }}
           variant="contained"
           size="small"
@@ -36,4 +34,4 @@ export const ItemList = ({ content }) => {
       </div>
     </>
   );
-}
+};

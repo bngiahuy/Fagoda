@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Button, TextField } from "@mui/material";
 import Background from "assets/SignIn/SignIn.png";
 import Logo from "assets/Header/logo.png";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -21,7 +22,6 @@ const useStyles = makeStyles(() => ({
     },
     logo: {
         height: "100px",
-        top: "150px",
     },
     signInBox: {
         padding: "1rem",
@@ -38,13 +38,6 @@ const useStyles = makeStyles(() => ({
     },
     question: {
         padding: "1rem",
-        fontSize: "14px",
-        fontWeight: "500",
-        alignItems: "center",
-    },
-    signUpText: {
-        padding: "1rem",
-        color: "#144EC7",
         fontSize: "14px",
         fontWeight: "500",
         alignItems: "center",
@@ -88,7 +81,7 @@ const useStyles = makeStyles(() => ({
 
 export const SignIn = () => {
     const styles = useStyles();
-    const url = Image;
+    const navigate = useNavigate();
 
     return (
 
@@ -99,7 +92,15 @@ export const SignIn = () => {
                 <div className={styles.signInTitle}>Đăng nhập</div>
                 <div className={styles.signUpPage}>
                     <div className={styles.question}>Chưa có tài khoản?</div>
-                    <div className={styles.signUpText}>Đăng ký tại đây</div>
+                    <Button style={{
+                        padding: "1rem",
+                        color: "#144EC7",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        alignItems: "center",
+                        textTransform: "none",
+                        textDecorationLine: "underline",
+                    }} onClick={() => navigate("/signup")}>Đăng ký tại đây</Button>
                 </div>
                 <div className={styles.usernameText}>Tài khoản</div>
                 <TextField fullWidth label="Email hoặc Số điện thoại" id="Email hoặc Số điện thoại" />

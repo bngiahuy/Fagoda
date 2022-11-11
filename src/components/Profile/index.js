@@ -80,6 +80,12 @@ export default function Profile() {
                   </span>
               </div>
             </div>
+            <div id='ContactInfo'>
+                <h3 style={{
+                  padding: "10px",
+                }}>Thông tin liên hệ</h3>
+              <span>hehe</span>
+            </div>
         </div>
         <RightTab />
     </div>

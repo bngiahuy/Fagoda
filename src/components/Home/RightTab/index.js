@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./index.css";
 import { ItemList } from "./ItemList";
 import { Contact } from "./Contact";
-import BaNaHill from "../../../assets/Home/RightTab/BaNaHill.jpg";
-import TrangAn from "../../../assets/Home/RightTab/TrangAn.jpg";
+import BaNaHill from "assets/Home/RightTab/BaNaHill.jpg";
+import TrangAn from "assets/Home/RightTab/TrangAn.jpg";
 
-export const RightTab = () => {
+export const RightTab = ({ auth }) => {
   const [advertisement, setAdvertisement] = useState({
     title: "Được tài trợ",
     itemList: [
@@ -53,8 +53,10 @@ export const RightTab = () => {
       <ItemList content={advertisement} />
       <div className="seperator" />
       <ItemList content={promotion} />
-      <div className="seperator" />
-      <Contact />
+      {auth && <>
+        <div className="seperator" />
+        <Contact />
+      </>}
     </div>
   );
 };

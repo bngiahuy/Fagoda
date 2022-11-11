@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AVT from "../../../../assets/Home/RightTab/avatar.png";
+import AVT from "assets/Home/RightTab/avatar.png";
 import { Avatar, Button } from "@mui/material";
 
 export const Contact = () => {
@@ -22,9 +22,11 @@ export const Contact = () => {
     },
   ]);
 
+  const [currentChat, setCurrentChat] = useState(0);
+
   return (
-    <div className="contact">
-      <div className="mainTitle">Người liên hệ</div>
+    <>
+      <div className="mainTitleRightTab">Người liên hệ</div>
       {listFriend.map((item) => (
         <Button
           fullWidth
@@ -46,6 +48,6 @@ export const Contact = () => {
           {item.name}
         </Button>
       ))}
-    </div>
+    </>
   );
 };

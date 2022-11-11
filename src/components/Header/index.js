@@ -26,7 +26,7 @@ export const Header = ({ auth, setAuth }) => {
   useEffect(() => {
     if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
       setEnable([true, true, true, true, true, true, true]);
-    else if (pathname === "/login")
+    else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
     else if (pathname === "/admin")
       setEnable([false, false, false, false, false, true, true]);

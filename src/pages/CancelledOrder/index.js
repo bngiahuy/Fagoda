@@ -1,13 +1,14 @@
 import React from "react";
-import TourList from "../../components/CancelledOrder/TourList";
-import { Contact } from "../../components/Home/RightTab/Contact";
+
+import StandaloneContact from "components/CancelledOrder/StandaloneContact/";
 import "./index.css";
+import TourList from "components/CancelledOrder/TourList/";
 
 const CancelledOrder = () => {
   return (
     <div className="two-column">
       <TourList />
-      <Contact />
+      <StandaloneContact />
     </div>
   );
 };

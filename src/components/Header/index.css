@@ -1,27 +1,27 @@
 .header {
-    height: 50px;
-    width: 100%;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
-    position: fixed;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
 .logoHeader {
-    height: 50px;
+  height: 50px;
 }
 
 .imageHeader {
-    height: 30px;
+  height: 30px;
 }
 
 .searchFagoda {
-    background-color: #F0F2F5;
-    border-radius: 25px;
-    height: 40px;
-    display: flex;
-    align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 25px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }

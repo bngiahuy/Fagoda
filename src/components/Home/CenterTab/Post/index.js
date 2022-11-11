@@ -11,7 +11,6 @@ import Share from "assets/Home/CenterTab/share.png";
 import Report from "assets/Home/CenterTab/report.png";
 import Liked from "assets/Home/CenterTab/liked.png";
 import Like from "assets/Home/CenterTab/like.png";
-import { fontWeight } from "@mui/system";
 
 export const Post = ({ post }) => {
   const buttonMenu = [

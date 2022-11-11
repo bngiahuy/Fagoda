@@ -18,16 +18,15 @@ import {
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ auth, setAuth }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
-  const [auth, setAuth] = useState(true);
 
   useEffect(() => {
     if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
       setEnable([true, true, true, true, true, true, true]);
-    else if (pathname === "/login")
+    else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
     else if (pathname === "/admin")
       setEnable([false, false, false, false, false, true, true]);

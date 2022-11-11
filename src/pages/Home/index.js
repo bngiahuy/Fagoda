@@ -4,13 +4,13 @@ import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
 import { CenterTab } from '../../components/Home/CenterTab';
 
-const Home = () => {
+const Home = ({ auth }) => {
 
   return (
     <div className='home'>
-      <LeftTab />
+      {auth && <LeftTab />}
       <CenterTab />
-      <RightTab />
+      <RightTab auth={auth} />
     </div>
   );
 }

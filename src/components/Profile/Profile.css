@@ -9,11 +9,32 @@
     width: 50%;
     position: relative;
   }
-  
+
+  #abroad {
+    border-radius: 5px;
+    border: 2px solid;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight: bold;
+    border: 2px solid #00B4D8;
+    font-size: 13px;
+    margin-right: 5px;
+
+  }
+  #not-abroad {
+    border: 2px solid #FFD700;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
   #profile-d {
     position: absolute;
     left: 0px;
-    bottom: 50%;
+    background-color: white;
+    /* bottom: 50%; */
     right: 0px;
     /* height: 90%; */
     z-index: 2;
@@ -33,7 +54,7 @@
   width: 100%;
     /* justify-content: center;
     width: 70%;*/
-    margin-top: -20%; 
+    /* margin-top: -20%;  */
   }
   
   #profile-pic {
@@ -42,7 +63,7 @@
     width: 10rem;
     height:  10rem;
     left: 30px;
-    bottom: 30px;
+    bottom: 79px;
     border-radius: 70%;
     border: 7px solid #D9D9D9;
   }
@@ -54,12 +75,27 @@
   }
   
   #u-name {
+    /* justify-content:center; */
     position: absolute;
-    top: 40px;
+    top: 1%;
     left: 200px;
     color: black;
-    font-size: 17px;
+    font-size: 25px;
     font-weight: bold;
+  }
+  #Favorite-location {
+    display: block;
+    /* position; */
+
+    margin-left: 100px;
+}
+  .short-info{ 
+    position: relative;
+    padding-top: 1px;
+    /* top:30px; */
+    bottom: 120px;
+    left: 200px;
+    font-size: 18px;
   }
 .content {
     width: 600px;

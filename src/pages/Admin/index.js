@@ -23,15 +23,20 @@ const Admin = () => {
   const [page, setPage] = useState("MainPage");
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <div className={styles.container}>
         <Aside />
-        {page === 'MainPage' && <MainPage />}
+        {/* <MainPage/> */}
+        {/* <Analysis /> */}
+        {/* <Member/> */}
+        <Post />
+
+        {/* {page === 'MainPage' && <MainPage />}
         {page === 'Member'   && <Member />}
         {page === 'Post'     && <Post />}
         {page === 'Survey'   && <Survey />}
         {page === 'Analysis' && <Analysis />}
-        {page === 'Event'    && <Event />}
+        {page === 'Event'    && <Event />} */}
       </div>
     </>
   );

@@ -9,11 +9,11 @@ export default function Profile() {
     <div className='profile'>
       <LeftTab />
       <div className='content'>
-        
           <img className='cover-img' src={CoverKhachHang}></img>
-          <img id='avatar-circle' className='avatar'  src={avatar}></img>
-        
-          
+          <div idName='avatar-circle'>
+          <img className='avatar' src={avatar}></img>
+
+          </div>
 
           
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -16,15 +16,15 @@ import { SignUp } from "./components/SignUp";
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#2984FF'
+      main: "#2984FF",
     },
     secondary: {
-      main: '#00B4D8'
+      main: "#00B4D8",
     },
     tertiary: {
-      main: '#90E0EF'
+      main: "#90E0EF",
     },
-  }
+  },
 });
 
 function App() {
@@ -37,7 +37,6 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
-
           <Header />
           <div style={{ position: "fixed", top: "50px" }}>
             <Routes>
@@ -53,6 +52,6 @@ function App() {
       </ThemeProvider>
     </div>
   );
-};
+}
 
 export default App;

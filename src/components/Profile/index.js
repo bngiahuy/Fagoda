@@ -7,6 +7,11 @@ import avatar from 'assets/Profile/avatar.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TourIcon from '@mui/icons-material/Tour';
 import MovingIcon from '@mui/icons-material/Moving';
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+
+
+
+
 export default function Profile() {
   return (
     <div className='profile'>
@@ -28,11 +33,11 @@ export default function Profile() {
 
         <div id="profile-upper">
             <div id="profile-banner-image">
-              <img src={CoverKhachHang} alt="Banner image"></img>
+              <img src={CoverKhachHang} alt='Cover'></img>
             </div>
             <div id="profile-d">
               <div id="profile-pic">
-                <img src={avatar}></img>
+                <img src={avatar} alt='Avatar'></img>
               </div>
               <div id="u-name">Huy Bùi</div>
               
@@ -81,10 +86,23 @@ export default function Profile() {
               </div>
             </div>
             <div id='ContactInfo'>
-                <h3 style={{
-                  padding: "10px",
-                }}>Thông tin liên hệ</h3>
-              <span>hehe</span>
+                
+              <span style={{
+                  padding: "8px",
+                  marginLeft: "20px",
+                  position: "absolute",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}>Thông tin liên hệ
+                </span>
+              <span style={{
+                position: "absolute",
+                marginLeft: "300px",
+                fontSize: "13px",
+              }}>
+                <PlaceOutlinedIcon />
+                Thủ Đức, Hồ Chí Minh
+              </span>
             </div>
         </div>
         <RightTab />

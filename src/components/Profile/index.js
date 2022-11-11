@@ -35,9 +35,7 @@ export default function Profile() {
                 <img src={avatar}></img>
               </div>
               <div id="u-name">Huy Bùi</div>
-              <div id='Favorite-location'>
-ee
-              </div>
+              
               <div className='short-info'>
                 <CalendarMonthIcon style={{
                   fill: "#20ECBB",

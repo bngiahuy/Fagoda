@@ -22,6 +22,8 @@ export const Contact = () => {
     },
   ]);
 
+  const [currentChat, setCurrentChat] = useState(0);
+
   return (
     <>
       <div className="mainTitleRightTab">Người liên hệ</div>

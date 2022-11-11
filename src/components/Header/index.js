@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Logo from "assets/Header/logo.png";
 import AVT from "assets/Header/user.png";
@@ -8,6 +8,7 @@ import Messages from "assets/Header/messages.png";
 import Cart from "assets/Header/cart.png";
 import Setting from "assets/Header/setting.png";
 import Logout from "assets/Header/logout.png";
+import Login from "assets/Header/login.png";
 import {
   Avatar,
   Button,
@@ -15,10 +16,21 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ auth, setAuth }) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
+
+  useEffect(() => {
+    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
+      setEnable([true, true, true, true, true, true, true]);
+    else if (pathname === "/signin" || pathname === "/signup")
+      setEnable([false, false, false, false, false, false, false]);
+    else if (pathname === "/admin")
+      setEnable([false, false, false, false, false, true, true]);
+  }, [pathname])
 
   return (
     <div className="header">
@@ -36,7 +48,8 @@ export const Header = () => {
           onClick={() => navigate("/home")}
         />
       </IconButton>
-      <Button
+
+      {enable[0] && <Button
         startIcon={
           <Avatar alt="avatar" src={AVT} sx={{ width: 30, height: 30 }} />
         }
@@ -50,8 +63,9 @@ export const Header = () => {
         onClick={() => navigate("/profile")}
       >
         Johnny Nguyễn
-      </Button>
-      <div className="searchFagoda">
+      </Button>}
+
+      {enable[1] && <div className="searchFagoda">
         <TextField
           variant="standard"
           InputProps={{
@@ -69,25 +83,34 @@ export const Header = () => {
           }}
           placeholder="Tìm kiếm trên Fagoda"
         />
-      </div>
-      <IconButton style={{ position: "fixed", right: "220px" }}>
+      </div>}
+
+      {enable[2] && <IconButton style={{ position: "fixed", right: "220px" }}>
         <img alt="logout" src={Notification} className="imageHeader" />
-      </IconButton>
-      <IconButton style={{ position: "fixed", right: "170px" }}>
+      </IconButton>}
+
+      {enable[3] && <IconButton style={{ position: "fixed", right: "170px" }}>
         <img alt="messages" src={Messages} className="imageHeader" />
-      </IconButton>
-      <IconButton
+      </IconButton>}
+
+      {enable[4] && <IconButton
         style={{ position: "fixed", right: "120px" }}
         onClick={() => navigate("/cancelled_order")}
       >
         <img alt="cart" src={Cart} className="imageHeader" />
-      </IconButton>
-      <IconButton style={{ position: "fixed", right: "70px" }}>
+      </IconButton>}
+
+      {enable[5] && <IconButton style={{ position: "fixed", right: "70px" }}>
         <img alt="setting" src={Setting} className="imageHeader" />
-      </IconButton>
-      <IconButton style={{ position: "fixed", right: "20px" }}>
-        <img alt="logout" src={Logout} className="imageHeader" />
-      </IconButton>
+      </IconButton>}
+
+      {enable[6] &&
+        <IconButton
+          style={{ position: "fixed", right: "20px" }}
+          onClick={() => setAuth(!auth)}
+        >
+          <img alt="logout" src={auth ? Logout : Login} className="imageHeader" />
+        </IconButton>}
     </div>
   );
 };

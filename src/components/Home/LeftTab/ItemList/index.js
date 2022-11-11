@@ -31,42 +31,56 @@ export const ItemList = ({ content, setContent, chosen, setChosen }) => {
       >
         <div className="titleLeft">{content.name}</div>
       </Button>
-      <div className="itemList">
+      <div className="itemListLeftTab">
         {content.status === "open" &&
-          content.listItem.map((item, index) => (
-            <Button
-              startIcon={
-                <img
-                  src={content.url}
-                  style={{ width: "20px", height: "20px" }}
-                />
-              }
-              fullWidth
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-              }}
-              size="large"
-              variant={
-                content.name === chosen.name && index === chosen.index
-                  ? "contained"
-                  : "text"
-              }
-              onClick={() => setChosen({ name: content.name, index: index })}
-            >
-              <div
-                className="contentLeft"
+          <>
+            {content.listItem.map((item, index) => (
+              <Button
+                startIcon={
+                  <img
+                    src={content.url}
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                }
+                fullWidth
                 style={{
-                  color:
-                    content.name === chosen.name && index === chosen.index
-                      ? "white"
-                      : "black",
+                  display: "flex",
+                  justifyContent: "flex-start",
                 }}
+                size="large"
+                variant={
+                  content.name === chosen.name && index === chosen.index
+                    ? "contained"
+                    : "text"
+                }
+                onClick={() => setChosen({ name: content.name, index: index })}
               >
-                {item}
-              </div>
-            </Button>
-          ))}
+                <div
+                  className="contentLeft"
+                  style={{
+                    color:
+                      content.name === chosen.name && index === chosen.index
+                        ? "white"
+                        : "black",
+                  }}
+                >
+                  {item}
+                </div>
+              </Button>
+            ))}
+            <div className="moreLeftTab">
+              <Button
+                style={{
+                  textTransform: "none",
+                  fontSize: "10px",
+                }}
+                variant="contained"
+                size="small"
+              >
+                Xem thêm
+              </Button>
+            </div>
+          </>}
       </div>
     </>
   );

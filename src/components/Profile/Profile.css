@@ -5,32 +5,23 @@
     height: calc(100vh - 50px);
     width: 100vw;
 }
-.content {
-    width: 600px;
-    /* display: flex; */
-    justify-content: center;
-    
+.profile .content {
+    position: absolute;
+    width: 587px;
+    height: 350px;
+    left: 344px;
+    top: 52px;
+
 }
 
-.cover-img {
-    width: 600px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
+.content .cover-img {
+    position: absolute;
+    width: 586px;
+    height: 153px;
+    left: 0px;
+    top: 0px;
 }
 .seperator {
     height: 1px;
     background-color: #ced0d4;
 }
-#avatar-circle{
-    text-align: center;
-}
-.avatar {
-    
-    /* background-position: top center; */
-    vertical-align: middle;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }

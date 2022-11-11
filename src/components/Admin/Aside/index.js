@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     margin: "20px auto",
   },
-  button: {
+  buttonAside: {
     width: "100%",
     height: "50px",
     color: "#03045E",
@@ -56,16 +56,16 @@ const Aside = () => {
       </div>
       {/* Navigation Button */}
       <div className={styles.navButtonContainer}>
-        <Button className={styles.button}
+        <Button className={styles.buttonAside}
           style={{backgroundColor: "#90E0EF"}}
         >
           Trang chủ
         </Button>
-        <Button className={styles.button}>Thành viên</Button>
-        <Button className={styles.button}>Bài viết</Button>
-        <Button className={styles.button}>Khảo sát</Button>
-        <Button className={styles.button}>Phân tích</Button>
-        <Button className={styles.button}>Sự kiện</Button>
+        <Button className={styles.buttonAside}>Thành viên</Button>
+        <Button className={styles.buttonAside}>Bài viết</Button>
+        <Button className={styles.buttonAside}>Khảo sát</Button>
+        <Button className={styles.buttonAside}>Phân tích</Button>
+        <Button className={styles.buttonAside}>Sự kiện</Button>
       </div>
     </div>
   );

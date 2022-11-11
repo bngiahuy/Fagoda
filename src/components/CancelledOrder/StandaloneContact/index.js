@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import AVT from "assets/Home/RightTab/avatar.png";
 import { Avatar, Button } from "@mui/material";
+import "./index.css";
 
-export const Contact = () => {
-  const [listFriend, setListFriend] = useState([
+const StandaloneContact = () => {
+  const [listFriend] = useState([
     {
       url: AVT,
       name: "Hoàng Nhật Hà",
@@ -23,7 +24,7 @@ export const Contact = () => {
   ]);
 
   return (
-    <>
+    <div className="standalone-contact">
       <div className="mainTitleRightTab">Người liên hệ</div>
       {listFriend.map((item) => (
         <Button
@@ -46,6 +47,8 @@ export const Contact = () => {
           {item.name}
         </Button>
       ))}
-    </>
+    </div>
   );
 };
+
+export default StandaloneContact;

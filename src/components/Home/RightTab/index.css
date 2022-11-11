@@ -7,14 +7,14 @@
     overflow-y: auto;
 }
 
-.imageRight {
+.imageRightTab {
     width: 40px;
     height: 40px;
     border-radius: 5px;
     margin-left: 10px;
 }
 
-.mainTitle {
+.mainTitleRightTab {
     display: flex;
     align-items: center;
     font-size: 15px;
@@ -23,7 +23,7 @@
     height: 50px;
 }
 
-.contentRight {
+.contentRightTab {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -31,16 +31,16 @@
     color: black;
 }
 
-.title {
+.titleRightTab {
     font-size: 13px;
     font-weight: bold;
 }
 
-.company {
+.companyRightTab {
     font-size: 10px;
 }
 
-.more {
+.moreRightTab {
     display: flex;
     justify-content: center;
     padding: 10px;

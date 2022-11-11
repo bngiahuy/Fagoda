@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
+import Analysis from '../Analysis';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
     border: '1px solid #00B4D8',
     borderRadius: "20px",
     height: "500px",
+    width: "950px",
   },
 
 }));
@@ -28,9 +30,11 @@ const MainPage = () => {
       <div className={styles.titleContainer}>
         <h3 className={styles.title}>TRANG CHỦ</h3>
       </div>
-      <div className={styles.content}>  
-
+      {/* <div className={styles.content}>   */}
+      <div className={styles.analysis} style={{transform:"scale(0.5"}}>
+        <Analysis />
       </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -6,23 +6,100 @@
     height: calc(100vh - 50px);
     width: 100vw;
 }
-.profile .content {
+#profile-upper {
+    width: 50%;
+    position: relative;
+  }
+  
+  #profile-d {
     position: absolute;
-    width: 587px;
-    height: 350px;
-    left: 344px;
-    top: 52px;
-
+    left: 0px;
+    bottom: 50%;
+    right: 0px;
+    /* height: 90%; */
+    z-index: 2;
+  }
+  
+  #profile-banner-image {
+    height: 150px;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  #profile-banner-image img {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+    /* justify-content: center;
+    width: 70%;*/
+    margin-top: -20%; 
+  }
+  
+  #profile-pic {
+    vertical-align: middle;
+    position: relative;
+    width: 10rem;
+    height:  10rem;
+    left: 30px;
+    bottom: 30px;
+    border-radius: 70%;
+    border: 7px solid #D9D9D9;
+  }
+  
+  #profile-pic img {
+    left: 50px;
+    border-radius: 70%;
+    width: 100%;
+  }
+  
+  #u-name {
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+  }
+.content {
+    width: 600px;
+    /* display: flex; */
+    justify-content: center;
+    
 }
 
-.content .cover-img {
-    position: absolute;
-    width: 586px;
-    height: 153px;
-    left: 0px;
-    top: 0px;
+#name-user {
+    margin-left: 150px;
+    text-align: center;
+}
+.cover-img {
+    width: 600px;
+    height: 180px;
+
+    position:relative;
+    object-fit: cover;
+    /* border-radius: 10px 10px 0 0; */
 }
 .seperator {
     height: 1px;
     background-color: #ced0d4;
 }
+
+#avatar-circle{
+    text-align: left;
+    position:relative;
+    font-weight: bold;
+}
+.avatar {
+
+    /* background-position: top center; */
+    vertical-align: middle;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    top:-70px; /* and play around with this */
+    left:30px; /* play around with this */
+    border-radius: 70%;
+    border: 7px solid #D9D9D9;
+  }

@@ -42,75 +42,94 @@ const Waiting = () => {
       depart: "09/11/2022",
       location: "abroad",
     },
+    {
+      ID: "TO10075",
+      quantity: 999,
+      name: "Tour Hàn Quốc trọn gói (Seoul, đảo Nami,... ) - 5N4Đ",
+      company: "Cty CP VIETNAM BOOKING",
+      depart: "09/11/2022",
+      location: "abroad",
+    },
   ]);
   return (
-    <>
-      <div className="title">Các tour có yêu cầu chờ xử lý</div>
-      <div className="waiting-content">
-        <div className="subtitle">
-          <ul>
-            <li style={{ width: "120px" }}>Mã tour</li>
-            <li style={{ width: "150px" }}>Số yêu cầu hủy</li>
-            <li style={{ width: "180px" }}>Tour</li>
-            <li style={{ width: "200px" }}>Đơn vị tổ chức</li>
-            <li style={{ width: "150px" }}>Ngày khởi hành</li>
-          </ul>
-        </div>
-        {listTour.map((item) => (
-          <div className="each-tour">
-            <div style={{ width: "120px" }} className="tour-detail">
-              <Button> {item.ID}</Button>
-            </div>
-            <div style={{ width: "150px" }} className="tour-detail">
-              <span>{item.quantity}</span>{" "}
-              <img
-                alt="waiting"
-                src={cancel}
-                style={{ width: "30px", height: "30px", marginLeft: "10px" }}
-              />
-            </div>
-            <div style={{ width: "180px" }} className="tour-detail">
-              <div className="tour-location">
-                <div
-                  className="location-detail"
-                  style={{
-                    border:
-                      item.location === "abroad"
-                        ? "2px solid #00B4D8"
-                        : "2px solid #FFD700",
-                    fontSize: "13px",
-                  }}
-                >
-                  {item.location === "abroad" ? "QUỐC TẾ" : "TRONG NƯỚC"}
-                </div>
-                <div style={{ color: "#7C7C7C" }}>{item.name}</div>
-              </div>
-            </div>
-            <div style={{ width: "200px" }} className="tour-detail">
-              <div className="company-detail">
-                <div className="company-info">
-                  <Avatar
-                    alt="avatar"
-                    src={AVT}
-                    sx={{ width: 30, height: 30 }}
-                  />
-                  <div>{item.company}</div>
-                </div>
-                <div className="company-star">
-                  {star.map((item) => (
-                    <img alt="filledStar" src={item ? filledStar : emptyStar} />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div style={{ width: "150px" }} className="tour-detail">
-              {item.depart}
-            </div>
+    <div className="tab-view">
+      <div className="detail">
+        <div className="title">Các tour có yêu cầu chờ xử lý</div>
+        <div className="waiting-content">
+          <div className="subtitle">
+            <ul>
+              <li style={{ width: "120px" }}>Mã tour</li>
+              <li style={{ width: "150px" }}>Số yêu cầu hủy</li>
+              <li style={{ width: "180px" }}>Tour</li>
+              <li style={{ width: "200px" }}>Đơn vị tổ chức</li>
+              <li style={{ width: "150px" }}>Ngày khởi hành</li>
+            </ul>
           </div>
-        ))}
-        {/* <DataGrid />*/}
+          <div style={{ overflowY: "scroll", height: "64%" }}>
+            {listTour.map((item) => (
+              <div className="each-tour">
+                <div style={{ width: "120px" }} className="tour-detail">
+                  <Button> {item.ID}</Button>
+                </div>
+                <div style={{ width: "150px" }} className="tour-detail">
+                  <span>{item.quantity}</span>{" "}
+                  <img
+                    alt="waiting"
+                    src={cancel}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginLeft: "10px",
+                    }}
+                  />
+                </div>
+                <div style={{ width: "180px" }} className="tour-detail">
+                  <div className="tour-location">
+                    <div
+                      className="location-detail"
+                      style={{
+                        border:
+                          item.location === "abroad"
+                            ? "2px solid #00B4D8"
+                            : "2px solid #FFD700",
+                      }}
+                    >
+                      {item.location === "abroad" ? "QUỐC TẾ" : "TRONG NƯỚC"}
+                    </div>
+                    <div style={{ color: "#7C7C7C" }}>{item.name}</div>
+                  </div>
+                </div>
+                <div style={{ width: "200px" }} className="tour-detail">
+                  <div className="company-detail">
+                    <div className="company-info">
+                      <Avatar
+                        alt="avatar"
+                        src={AVT}
+                        sx={{ width: 30, height: 30 }}
+                      />
+                      <div>{item.company}</div>
+                    </div>
+                    <div className="company-star">
+                      {star.map((item) => (
+                        <img
+                          alt="filledStar"
+                          src={item ? filledStar : emptyStar}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div style={{ width: "150px" }} className="tour-detail">
+                  {item.depart}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* <DataGrid />*/}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

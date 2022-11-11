@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Button } from '@mui/material';
+import Avatar from '../../../assets/Header/user.png';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
   avatar:{
     width: "50px",
     height: "50px",
+    margin: "auto",
   },
   name: {
     padding: "20px 0",
@@ -40,15 +42,23 @@ const useStyles = makeStyles(() => ({
     height: "50px",
     color: "#03045E",
   },
+  activeButton: {
+    width: "100%",
+    height: "50px",
+    color: "#03045E",
+    backgroundColor: "#90E0EF"
+  },
 }));
 
 const Aside = () => {
   const styles = useStyles();
+  const [active, setActive] = useState('home');
+
   return (
     <div className={styles.container}>
       {/* Info */}
       <div className={styles.infoContainer}>
-        <img className={styles.avatar} src='../assets/avatar.png' alt='avatar' />
+        <img className={styles.avatar} src={Avatar} alt='avatar' />
         <div style={{margin: "0 auto"}}>
           <h3 className={styles.name}>ADMIN</h3>
           <Button variant='contained' color='primary' className={styles.editButton}>Sửa</Button>
@@ -56,16 +66,18 @@ const Aside = () => {
       </div>
       {/* Navigation Button */}
       <div className={styles.navButtonContainer}>
-        <Button className={styles.buttonAside}
-          style={{backgroundColor: "#90E0EF"}}
-        >
+        <Button className={styles.button}>
           Trang chủ
         </Button>
-        <Button className={styles.buttonAside}>Thành viên</Button>
-        <Button className={styles.buttonAside}>Bài viết</Button>
-        <Button className={styles.buttonAside}>Khảo sát</Button>
-        <Button className={styles.buttonAside}>Phân tích</Button>
-        <Button className={styles.buttonAside}>Sự kiện</Button>
+        <Button className={styles.button}
+          onClick={() => setActive('home')}
+        >
+          Thành viên
+        </Button>
+        <Button className={styles.button}>Bài viết</Button>
+        <Button className={styles.button}>Khảo sát</Button>
+        <Button className={styles.button}>Phân tích</Button>
+        <Button className={styles.button}>Sự kiện</Button>
       </div>
     </div>
   );

@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
     border: '1px solid #00B4D8',
     borderRadius: "20px",
     height: "500px",
+    width: "950px",
   },
 
 }));
@@ -29,7 +30,7 @@ const Event = () => {
         <h3 className={styles.title}>SỰ KIỆN</h3>
       </div>
       <div className={styles.content}>  
-
+        This feature will be updated soon.
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -6,6 +6,8 @@ import Admin from "./pages/Admin";
 import Profile from "./components/Profile";
 import CancelledOrder from "./pages/CancelledOrder";
 import { Header } from "./components/Header";
+import { SignIn } from "./components/SignIn";
+import { SignUp } from "./components/SignUp";
 // use default theme
 // const theme = createTheme();
 
@@ -21,7 +23,7 @@ const theme = createTheme({
     tertiary: {
       main: "#90E0EF",
     },
-  }
+  },
 });
 
 function App() {
@@ -32,9 +34,6 @@ function App() {
 
           <Routes>
             <Route path="/signin" element={<SignIn />} />
-
-
-            
             <Route path="/signup" element={<SignUp />} />
           </Routes>
           <Header />
@@ -45,12 +44,13 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/cancelled_order" element={<CancelledOrder />} />
+
             </Routes>
           </div>
         </BrowserRouter>
       </ThemeProvider>
     </div>
   );
-};
+}
 
 export default App;

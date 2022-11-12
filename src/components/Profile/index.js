@@ -88,21 +88,21 @@ export default function Profile() {
             <div id='ContactInfo'>
                 
               <span style={{
-                  padding: "8px",
-                  marginLeft: "20px",
+                  padding: "9px",
+                  marginLeft: "15px",
                   position: "absolute",
                   fontSize: "18px",
                   fontWeight: "bold",
                 }}>Thông tin liên hệ
                 </span>
-              <span style={{
+              {/* <span style={{
                 position: "absolute",
                 marginLeft: "300px",
                 fontSize: "13px",
               }}>
                 <PlaceOutlinedIcon />
                 Thủ Đức, Hồ Chí Minh
-              </span>
+              </span> */}
             </div>
         </div>
         <RightTab />

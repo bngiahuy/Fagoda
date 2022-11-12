@@ -2,9 +2,20 @@
     width: 300px;
     box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
     background-color: white;
-    position: relative;
-    right: 0;
+    position: fixed;
+    right: 16px;
     overflow-y: auto;
+    height: calc(100vh - 50px);
+    -ms-overflow-style: none;
+    /* cho Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* cho Firefox */
+    overflow-y: scroll;
+}
+
+.rightTab::-webkit-scrollbar {
+    display: none;
+    /* cho Chrome, Safari, and Opera */
 }
 
 .imageRightTab {
@@ -44,4 +55,19 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+}
+
+.chatRightTab {
+    width: 250px;
+    height: 300px;
+    position: fixed;
+    bottom: 0;
+    right: 120px;
+    background-color: white;
+}
+
+.nameChatRightTab {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 10%);
+    width: 100%;
+    height: 40px;
 }

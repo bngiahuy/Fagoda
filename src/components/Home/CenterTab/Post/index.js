@@ -1,4 +1,4 @@
-import { Avatar, Button } from "@mui/material";
+import { Avatar, Button, IconButton } from "@mui/material";
 import React from "react";
 import More from "assets/Home/CenterTab/moreTour.png";
 import filledStar from "assets/Home/CenterTab/filledStar.png";
@@ -79,10 +79,18 @@ export const Post = ({ post }) => {
 
         <div className="buttonMenuPostNF">
           {buttonMenu.map((item) =>
-            <div className="divButtonMenuPostNF">
-              <img alt={item.content} src={item.url} className="imageKeyword" />
-              <div className="contentButtonMenuPostNF">{item.content}</div>
-            </div>
+            <Button
+              startIcon={<img alt={item.content} src={item.url} className="imageKeyword" />}
+              style={{
+                textTransform: "none",
+                fontSize: "12px",
+                color: "black",
+                fontWeight: "bold",
+              }}
+              fullWidth
+            >
+              {item.content}
+            </Button>
           )}
         </div>
 
@@ -92,18 +100,30 @@ export const Post = ({ post }) => {
               <Avatar alt={item.name} src={item.url} sx={{ marginRight: "10px", width: 25, height: 25 }} />
               <div>
                 <span className="titlePostNF">{item.name}</span> <br />
-                <span className="contentPostNF">{item.content}</span>
+                <span className="infoContentCommentPostNF">{item.content}</span>
               </div>
             </div>
             <div className="reactCommentPostNF">
               <div className="childReactCommentPostNF">
-                {item.star} <img alt="filledStar" src={filledStar} className="votePostNF" />
+                {item.star}&nbsp;<img alt="filledStar" src={filledStar} className="votePostNF" />
               </div>
               <div className="childReactCommentPostNF"  >
-                {item.like} <img alt="filledStar" src={item.isLiked ? Liked : Like} className="votePostNF" />
+                {item.like}
+                <IconButton>
+                  <img alt="filledStar" src={item.isLiked ? Liked : Like} className="votePostNF" />
+                </IconButton>
               </div>
             </div>
           </div>)}
+
+        <div className="moreCommentPostNF">
+          <div>
+            Xem thêm đánh giá
+          </div>
+          <div>
+            2/{post.numComment}
+          </div>
+        </div>
       </div>
     </div >
   );

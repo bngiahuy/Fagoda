@@ -5,18 +5,41 @@
   height: calc(100vh - 50px);
   width: 100vw;
 }
-#profile-upper {
-  width: 50%;
-  position: relative;
-}
-
 #profile-d {
   position: absolute;
   left: 0px;
-  bottom: 50%;
-  right: 0px;
+  background-color: white;
+  width: 100%;
+  /* width: 700px; */
+  height: 30%;
   /* height: 90%; */
   z-index: 2;
+}
+#profile-upper {
+  width: 50%;
+  margin-left: 24%;
+  margin-right: 24%;
+  position: relative;
+}
+
+#abroad {
+  border-radius: 5px;
+  border: 2px solid;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-weight: bold;
+  border: 2px solid #00b4d8;
+  font-size: 13px;
+  margin-right: 5px;
+}
+#not-abroad {
+  border: 2px solid #ffd700;
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
 #profile-banner-image {
@@ -33,7 +56,7 @@
   width: 100%;
   /* justify-content: center;
     width: 70%;*/
-  margin-top: -20%;
+  /* margin-top: -20%;  */
 }
 
 #profile-pic {
@@ -42,7 +65,7 @@
   width: 10rem;
   height: 10rem;
   left: 30px;
-  bottom: 30px;
+  bottom: 79px;
   border-radius: 70%;
   border: 7px solid #d9d9d9;
 }
@@ -54,49 +77,36 @@
 }
 
 #u-name {
+  /* justify-content:center; */
   position: absolute;
-  top: 40px;
+  top: 1%;
   left: 200px;
   color: black;
-  font-size: 17px;
+  font-size: 25px;
   font-weight: bold;
 }
-.content {
-  width: 600px;
-  /* display: flex; */
-  justify-content: center;
-}
+#Favorite-location {
+  display: block;
+  /* position; */
 
-#name-user {
-  margin-left: 150px;
-  text-align: center;
+  margin-left: 100px;
 }
-.cover-img {
-  width: 600px;
-  height: 180px;
-
+.short-info {
   position: relative;
-  object-fit: cover;
-  /* border-radius: 10px 10px 0 0; */
+  padding-top: 1px;
+  /* top:30px; */
+  bottom: 120px;
+  left: 200px;
+  font-size: 18px;
 }
-.seperator {
-  height: 1px;
-  background-color: #ced0d4;
-}
-
-#avatar-circle {
-  text-align: left;
+#ContactInfo {
   position: relative;
-  font-weight: bold;
-}
-.avatar {
-  /* background-position: top center; */
-  vertical-align: middle;
-  position: relative;
-  width: 110px;
-  height: 110px;
-  top: -70px; /* and play around with this */
-  left: 30px; /* play around with this */
-  border-radius: 70%;
-  border: 7px solid #d9d9d9;
+  top: 13rem;
+  margin-top: auto;
+  background-color: white;
+  width: 100%;
+  /* width: 700px; */
+  height: 100px;
+  /* height: 90%; */
+  z-index: 1;
 }

@@ -27,11 +27,10 @@ const MainPage = () => {
   const styles = useStyles();
   return (
     <div className={styles.container}>
-      <div className={styles.titleContainer}>
-        <h3 className={styles.title}>TRANG CHỦ</h3>
-      </div>
-      {/* <div className={styles.content}>   */}
-      <div className={styles.analysis} style={{transform:"scale(0.5"}}>
+      <div 
+        className={styles.analysis} 
+        // style={{transform:"scale(0.5)"}}
+      >
         <Analysis />
       </div>
       {/* </div> */}

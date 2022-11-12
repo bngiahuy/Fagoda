@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
     marginLeft: "20px",
     border: '1px solid #00B4D8',
     borderRadius: "20px",
+    width: "950px",
     height: "500px",
   },
 
@@ -29,7 +30,7 @@ const Survey = () => {
         <h3 className={styles.title}>KHẢO SÁT</h3>
       </div>
       <div className={styles.content}>  
-
+        This feature will be updated soon.
       </div>
     </div>
   );

@@ -1,56 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { ItemList } from "./ItemList";
-import Inter from "assets/Home/LeftTab/International.png";
-import Domestic from "assets/Home/LeftTab/domestic.png";
-import Business from "assets/Home/LeftTab/business.png";
+import { getTrendings } from "helpers/firebase/db";
 
 export const LeftTab = () => {
-  const [chosen, setChosen] = useState({ name: "Quốc Tế", index: 0 });
+  const [status, setStatus] = useState({ isShow: [true, true, true], chosen: "Nhật Bản" });
+  const [trendings, setTrendings] = useState();
 
-  const [international, setInternational] = useState({
-    name: "Quốc Tế",
-    url: Inter,
-    listItem: ["Nhật Bản", "Lào", "Campuchia"],
-    status: "open",
-  });
+  useEffect(() => {
+    const fetchData = async () => {
+      setTrendings(await getTrendings())
+    }
 
-  const [domestic, setDomestic] = useState({
-    name: "Trong Nước",
-    url: Domestic,
-    listItem: ["Đà Lạt", "Nha Trang", "Ninh Bình"],
-    status: "close",
-  });
-
-  const [business, setBusiness] = useState({
-    name: "Doanh Nghiệp",
-    url: Business,
-    listItem: ["Phương Trang", "Thành Bưởi", "Một doanh nghiệp nào đấy"],
-    status: "open",
-  });
+    fetchData();
+  }, [])
 
   return (
-    <div className="leftTab">
-      <ItemList
-        content={international}
-        setContent={setInternational}
-        chosen={chosen}
-        setChosen={setChosen}
-      />
-      <div className="seperator" />
-      <ItemList
-        content={domestic}
-        setContent={setDomestic}
-        chosen={chosen}
-        setChosen={setChosen}
-      />
-      <div className="seperator" />
-      <ItemList
-        content={business}
-        setContent={setBusiness}
-        chosen={chosen}
-        setChosen={setChosen}
-      />
-    </div>
+    <>{trendings &&
+      <div className="leftTab">
+        <ItemList
+          content={trendings.international}
+          title={"Quốc Tế"}
+          index={0}
+          status={status}
+          setStatus={setStatus}
+        />
+        <div className="seperator" />
+        <ItemList
+          content={trendings.domestic}
+          title={"Trong Nước"}
+          index={1}
+          status={status}
+          setStatus={setStatus}
+        />
+        <div className="seperator" />
+        <ItemList
+          content={trendings.business}
+          title={"Doanh Nghiệp"}
+          index={2}
+          status={status}
+          setStatus={setStatus}
+        />
+      </div>
+    }</>
   );
 };

@@ -1,8 +1,11 @@
 import React from "react";
 import DropDown from "assets/Home/LeftTab/DropDown.png";
+import International from "assets/Home/LeftTab/International.png";
+import Domestic from "assets/Home/LeftTab/domestic.png";
+import Business from "assets/Home/LeftTab/business.png";
 import { Button } from "@mui/material";
 
-export const ItemList = ({ content, setContent, chosen, setChosen }) => {
+export const ItemList = ({ content, title, index, status, setStatus }) => {
   return (
     <>
       <Button
@@ -12,16 +15,15 @@ export const ItemList = ({ content, setContent, chosen, setChosen }) => {
             className="imageLeft"
             style={{
               transform:
-                content.status === "open" ? "rotate(0deg)" : "rotate(-90deg)",
+                status.isShow[index] ? "rotate(0deg)" : "rotate(-90deg)",
             }}
           />
         }
-        onClick={() =>
-          setContent({
-            ...content,
-            status: content.status === "open" ? "close" : "open",
-          })
-        }
+        onClick={() => {
+          let temp = { ...status.isShow };
+          temp[index] = !temp[index];
+          setStatus({ ...status, isShow: temp })
+        }}
         fullWidth
         style={{
           display: "flex",
@@ -29,16 +31,16 @@ export const ItemList = ({ content, setContent, chosen, setChosen }) => {
         }}
         size="large"
       >
-        <div className="titleLeft">{content.name}</div>
+        <div className="titleLeft">{title}</div>
       </Button>
       <div className="itemListLeftTab">
-        {content.status === "open" &&
+        {status.isShow[index] && content &&
           <>
-            {content.listItem.map((item, index) => (
+            {content.map((item) => (
               <Button
                 startIcon={
                   <img
-                    src={content.url}
+                    src={item.PhotoUrl || (title === "Quốc Tế" ? International : title === "Trong Nước" ? Domestic : Business)}
                     style={{ width: "20px", height: "20px" }}
                   />
                 }
@@ -49,22 +51,22 @@ export const ItemList = ({ content, setContent, chosen, setChosen }) => {
                 }}
                 size="large"
                 variant={
-                  content.name === chosen.name && index === chosen.index
+                  item.name === status.chosen
                     ? "contained"
                     : "text"
                 }
-                onClick={() => setChosen({ name: content.name, index: index })}
+                onClick={() => setStatus({ ...status, chosen: item.name })}
               >
                 <div
                   className="contentLeft"
                   style={{
                     color:
-                      content.name === chosen.name && index === chosen.index
+                      item.name === status.chosen
                         ? "white"
                         : "black",
                   }}
                 >
-                  {item}
+                  {item.name}
                 </div>
               </Button>
             ))}

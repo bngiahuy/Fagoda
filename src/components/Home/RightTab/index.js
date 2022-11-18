@@ -5,7 +5,7 @@ import { Contact } from "./Contact";
 import BaNaHill from "assets/Home/RightTab/BaNaHill.jpg";
 import TrangAn from "assets/Home/RightTab/TrangAn.jpg";
 
-export const RightTab = ({ auth }) => {
+export const RightTab = ({ userData }) => {
   const [advertisement, setAdvertisement] = useState({
     title: "Được tài trợ",
     itemList: [
@@ -50,12 +50,12 @@ export const RightTab = ({ auth }) => {
 
   return (
     <div className="rightTab">
-      <ItemList content={advertisement} />
+      <ItemList key={advertisement.title} content={advertisement} />
       <div className="seperator" />
-      <ItemList content={promotion} />
-      {auth && <>
+      <ItemList key={promotion.title} content={promotion} />
+      {userData && <>
         <div className="seperator" />
-        <Contact />
+        <Contact userData={userData} />
       </>}
     </div>
   );

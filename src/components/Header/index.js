@@ -17,8 +17,9 @@ import {
   TextField,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import { logOut } from "helpers/firebase/auth";
 
-export const Header = ({ auth, setAuth }) => {
+export const Header = ({ userData }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
@@ -49,9 +50,9 @@ export const Header = ({ auth, setAuth }) => {
         />
       </IconButton>
 
-      {enable[0] && <Button
+      {enable[0] && userData && <Button
         startIcon={
-          <Avatar alt="avatar" src={AVT} sx={{ width: 30, height: 30 }} />
+          <Avatar alt="avatar" src={userData.photoUrl || AVT} sx={{ width: 30, height: 30 }} />
         }
         style={{
           fontSize: "13px",
@@ -62,7 +63,7 @@ export const Header = ({ auth, setAuth }) => {
         }}
         onClick={() => navigate("/profile")}
       >
-        Johnny Nguyễn
+        {userData.fullName}
       </Button>}
 
       {enable[1] && <div className="searchFagoda">
@@ -107,9 +108,16 @@ export const Header = ({ auth, setAuth }) => {
       {enable[6] &&
         <IconButton
           style={{ position: "fixed", right: "20px" }}
-          onClick={() => setAuth(!auth)}
+          onClick={() => {
+            if (userData) {
+              logOut();
+            }
+            else {
+              navigate("/signin")
+            }
+          }}
         >
-          <img alt="logout" src={auth ? Logout : Login} className="imageHeader" />
+          <img alt="logout" src={userData ? Logout : Login} className="imageHeader" />
         </IconButton>}
     </div>
   );

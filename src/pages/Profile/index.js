@@ -2,11 +2,11 @@ import React from 'react';
 
 import Profile from '../../components/Profile';
 
-const Profile = () => {
+const Profile = ({userData}) => {
 
   return (
     <div>
-        <Profile />
+        <Profile userData={userData}/>
     </div>
   );
 }

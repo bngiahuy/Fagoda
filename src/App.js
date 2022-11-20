@@ -55,7 +55,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/home" element={<Home userData={userData} />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<Profile userData={userData} />} />
               <Route path="/cancelled_order" element={<CancelledOrder />} />
             </Routes>
           </div>

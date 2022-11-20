@@ -112,3 +112,18 @@
     /* height: 90%; */
     z-index: 1;
 }
+
+#listposts {
+  display: contents;
+  position: relative;
+  background-color: white;
+  margin-top: auto;
+}
+
+.u-location {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-left: 5% ;
+  
+}

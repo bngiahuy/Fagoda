@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import { Button, TextField } from "@mui/material";
 import Background from "assets/SignIn/SignIn.png";
 import Logo from "assets/Header/logo.png";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getCurrentUser, signIn } from "helpers/firebase/auth";
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -82,6 +83,7 @@ const useStyles = makeStyles(() => ({
 export const SignIn = () => {
     const styles = useStyles();
     const navigate = useNavigate();
+    const [data, setData] = useState({ email: "", password: "" });
 
     return (
 
@@ -103,9 +105,9 @@ export const SignIn = () => {
                     }} onClick={() => navigate("/signup")}>Đăng ký tại đây</Button>
                 </div>
                 <div className={styles.usernameText}>Tài khoản</div>
-                <TextField fullWidth label="Email hoặc Số điện thoại" id="Email hoặc Số điện thoại" />
+                <TextField fullWidth label="Email hoặc Số điện thoại" id="Email hoặc Số điện thoại" value={data.email} onChange={(event) => setData({ ...data, email: event.target.value })} />
                 <div className={styles.passwordText}>Mật khẩu</div>
-                <TextField fullWidth label="Mật khẩu" id="Mật khẩu" />
+                <TextField fullWidth label="Mật khẩu" id="Mật khẩu" value={data.password} onChange={(event) => setData({ ...data, password: event.target.value })} />
                 <div className={styles.rememberMeContainer}>
                     <div className={styles.rememberMeBox}>
                         <input type="checkbox" id="rememberMe"></input>
@@ -117,8 +119,10 @@ export const SignIn = () => {
                     padding: "1rem",
                     backgroundColor: "#2984FF",
                     textTransform: "none",
-                }}>Đăng nhập</Button>
+                }}
+                    onClick={() => signIn(data).then((user) => { if (user) navigate("/home") })}
+                >Đăng nhập</Button>
             </div>
-        </div>
+        </div >
     );
 };

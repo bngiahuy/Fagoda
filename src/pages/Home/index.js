@@ -1,16 +1,15 @@
 import React from 'react';
 import './index.css'
-import { RightTab } from '../../components/Home/RightTab';
-import { LeftTab } from '../../components/Home/LeftTab';
-import { CenterTab } from '../../components/Home/CenterTab';
+import { RightTab } from 'components/Home/RightTab';
+import { LeftTab } from 'components/Home/LeftTab';
+import { CenterTab } from 'components/Home/CenterTab';
 
-const Home = ({ auth }) => {
-
+const Home = ({ userData }) => {
   return (
     <div className='home'>
-      {auth && <LeftTab />}
-      <CenterTab />
-      <RightTab auth={auth} />
+      {userData && <LeftTab />}
+      <CenterTab userData={userData} />
+      <RightTab userData={userData} />
     </div>
   );
 }

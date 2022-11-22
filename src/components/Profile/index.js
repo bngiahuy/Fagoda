@@ -144,9 +144,26 @@ export default function Profile({userData}) {
                 </span>
               </div>
             </div>
-        </div>
-        <div id='listposts'>
-            eeee
+          <div id='listposts'>
+          <span style={{
+                  padding: "9px",
+                  marginLeft: "15px",
+                  position: "absolute",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}>Hoạt động gần đây
+                </span>
+          <span style={{
+              position: 'absolute',
+              fontSize: '15px',
+              fontWeight: 'italic',
+              padding: '9px',
+              margin: '30px auto auto 15px',
+          }}>
+            Bạn không có hoạt động gì gần đây
+          </span>
+
+          </div>
         </div>
         <RightTab userData={userData}/>
     </div>

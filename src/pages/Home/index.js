@@ -7,7 +7,7 @@ import { CenterTab } from 'components/Home/CenterTab';
 const Home = ({ userData }) => {
   return (
     <div className='home'>
-      {userData && <LeftTab />}
+      <LeftTab />
       <CenterTab userData={userData} />
       <RightTab userData={userData} />
     </div>

@@ -110,3 +110,21 @@
   /* height: 90%; */
   z-index: 1;
 }
+
+#listposts {
+  width: 50%;
+  margin-top: 5cm;
+  margin-left: 24%;
+  margin-right: 24%;
+  display: flex;
+  position: absolute;
+
+  background-color: white;
+}
+
+.u-location {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-left: 5%;
+}

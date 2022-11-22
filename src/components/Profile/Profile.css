@@ -114,10 +114,14 @@
 }
 
 #listposts {
-  display: contents;
-  position: relative;
-  background-color: white;
-  margin-top: auto;
+    width: 50%;
+    margin-top: 5cm;
+    margin-left: 24%;
+    margin-right: 24%;
+    display: flex;
+    position: absolute;
+
+    background-color: white;
 }
 
 .u-location {

@@ -26,7 +26,7 @@ export default function Profile({userData}) {
             </div>
             <div id="profile-d">
               <div id="profile-pic">
-                <img src={userData.photoUrl} alt='Avatar'></img>
+                <img src={userData.photoUrl || avatar} alt='Avatar'></img>
               </div>
               <div id='u-name'>{userData.fullName}</div>
               
@@ -144,9 +144,9 @@ export default function Profile({userData}) {
                 </span>
               </div>
             </div>
-            <div id='listposts'>
-                
-            </div>
+        </div>
+        <div id='listposts'>
+            eeee
         </div>
         <RightTab userData={userData}/>
     </div>

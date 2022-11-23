@@ -4,7 +4,7 @@ import { Button, TextField } from "@mui/material";
 import Background from "assets/SignIn/SignIn.png";
 import Logo from "assets/Header/logo.png";
 import { useNavigate } from "react-router-dom";
-import { getCurrentUser, signIn } from "helpers/firebase/auth";
+import { signIn } from "helpers/firebase/auth";
 
 const useStyles = makeStyles(() => ({
     container: {

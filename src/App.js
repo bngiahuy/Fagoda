@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Profile from "./components/Profile";
 import CancelledOrder from "./pages/CancelledOrder";
+import SingleTour from "./pages/SingleTour";
+import OrderDetail from "./pages/OrderDetail";
+import CustomerOrder from "./pages/CustomerOrder";
 import { Header } from "./components/Header";
 import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUp";
@@ -58,7 +61,17 @@ function App() {
                 path="/profile"
                 element={<Profile userData={userData} />}
               />
-              <Route path="/cancelled_order" element={<CancelledOrder />} />
+              <Route path="/cancelled-order" element={<CancelledOrder />} />
+              <Route
+                path="/cancelled-order/single-tour"
+                element={<SingleTour />}
+              />
+              <Route
+                path="/cancelled-order/single-tour/:orderID"
+                element={<OrderDetail />}
+              />
+
+              <Route path="/order" element={<CustomerOrder />} />
             </Routes>
           </div>
         </BrowserRouter>

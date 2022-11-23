@@ -6,7 +6,9 @@ import { Avatar } from "@mui/material";
 import AVT from "assets/Header/user.png";
 import filledStar from "assets/Home/CenterTab/filledStar.png";
 import emptyStar from "assets/Home/CenterTab/emptyStar.png";
+import { useNavigate } from "react-router-dom";
 const Waiting = () => {
+  const navigate = useNavigate();
   const star = [1, 1, 1, 0];
 
   const [listTour] = useState([
@@ -69,7 +71,9 @@ const Waiting = () => {
             {listTour.map((item) => (
               <div className="each-tour">
                 <div style={{ width: "120px" }} className="tour-detail">
-                  <Button> {item.ID}</Button>
+                  <Button onClick={() => navigate("single-tour")}>
+                    {item.ID}
+                  </Button>
                 </div>
                 <div style={{ width: "150px" }} className="tour-detail">
                   <span>{item.quantity}</span>{" "}

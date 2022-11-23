@@ -22,16 +22,28 @@ import { logOut } from "helpers/firebase/auth";
 export const Header = ({ userData }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
+  const [enable, setEnable] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
 
   useEffect(() => {
-    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
+    if (
+      pathname === "/home" ||
+      pathname === "/profile" ||
+      pathname === "/cancelled_order"
+    )
       setEnable([true, true, true, true, true, true, true]);
     else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
     else if (pathname === "/admin")
       setEnable([false, false, false, false, false, true, true]);
-  }, [pathname])
+  }, [pathname]);
 
   return (
     <div className="header">
@@ -50,75 +62,95 @@ export const Header = ({ userData }) => {
         />
       </IconButton>
 
-      {enable[0] && userData && <Button
-        startIcon={
-          <Avatar alt="avatar" src={userData.photoUrl || AVT} sx={{ width: 30, height: 30 }} />
-        }
-        style={{
-          fontSize: "13px",
-          textTransform: "none",
-          color: "black",
-          position: "fixed",
-          left: "150px",
-        }}
-        onClick={() => navigate("/profile")}
-      >
-        {userData.fullName}
-      </Button>}
-
-      {enable[1] && <div className="searchFagoda">
-        <TextField
-          variant="standard"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment>
-                <img
-                  alt="search"
-                  src={Search}
-                  className="imageHeader"
-                  style={{ margin: "0 10px" }}
-                />
-              </InputAdornment>
-            ),
-            disableUnderline: true,
+      {enable[0] && userData && (
+        <Button
+          startIcon={
+            <Avatar
+              alt="avatar"
+              src={userData.photoUrl || AVT}
+              sx={{ width: 30, height: 30 }}
+            />
+          }
+          style={{
+            fontSize: "13px",
+            textTransform: "none",
+            color: "black",
+            position: "fixed",
+            left: "150px",
           }}
-          placeholder="Tìm kiếm trên Fagoda"
-        />
-      </div>}
+          onClick={() => navigate("/profile")}
+        >
+          {userData.fullName}
+        </Button>
+      )}
 
-      {enable[2] && <IconButton style={{ position: "fixed", right: "220px" }}>
-        <img alt="logout" src={Notification} className="imageHeader" />
-      </IconButton>}
+      {enable[1] && (
+        <div className="searchFagoda">
+          <TextField
+            variant="standard"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment>
+                  <img
+                    alt="search"
+                    src={Search}
+                    className="imageHeader"
+                    style={{ margin: "0 10px" }}
+                  />
+                </InputAdornment>
+              ),
+              disableUnderline: true,
+            }}
+            placeholder="Tìm kiếm trên Fagoda"
+          />
+        </div>
+      )}
 
-      {enable[3] && <IconButton style={{ position: "fixed", right: "170px" }}>
-        <img alt="messages" src={Messages} className="imageHeader" />
-      </IconButton>}
+      {enable[2] && (
+        <IconButton style={{ position: "fixed", right: "220px" }}>
+          <img alt="logout" src={Notification} className="imageHeader" />
+        </IconButton>
+      )}
 
-      {enable[4] && <IconButton
-        style={{ position: "fixed", right: "120px" }}
-        onClick={() => navigate("/cancelled_order")}
-      >
-        <img alt="cart" src={Cart} className="imageHeader" />
-      </IconButton>}
+      {enable[3] && (
+        <IconButton style={{ position: "fixed", right: "170px" }}>
+          <img alt="messages" src={Messages} className="imageHeader" />
+        </IconButton>
+      )}
 
-      {enable[5] && <IconButton style={{ position: "fixed", right: "70px" }}>
-        <img alt="setting" src={Setting} className="imageHeader" />
-      </IconButton>}
+      {enable[4] && (
+        <IconButton
+          style={{ position: "fixed", right: "120px" }}
+          onClick={() => navigate("/cancelled-order")}
+        >
+          <img alt="cart" src={Cart} className="imageHeader" />
+        </IconButton>
+      )}
 
-      {enable[6] &&
+      {enable[5] && (
+        <IconButton style={{ position: "fixed", right: "70px" }}>
+          <img alt="setting" src={Setting} className="imageHeader" />
+        </IconButton>
+      )}
+
+      {enable[6] && (
         <IconButton
           style={{ position: "fixed", right: "20px" }}
           onClick={() => {
             if (userData) {
               logOut();
-            }
-            else {
-              navigate("/signin")
+            } else {
+              navigate("/signin");
             }
           }}
         >
-          <img alt="logout" src={userData ? Logout : Login} className="imageHeader" />
-        </IconButton>}
+          <img
+            alt="logout"
+            src={userData ? Logout : Login}
+            className="imageHeader"
+          />
+        </IconButton>
+      )}
     </div>
   );
 };

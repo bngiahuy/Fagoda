@@ -1,5 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
+
+import Pagination from '@mui/material/Pagination';
+//icons
+import { IconButton } from '@mui/material';
+import ShowIcon from '../../../assets/Admin/show.png';
+import EditIcon from '../../../assets/Admin/edit-text.png';
+import DeleteIcon from '../../../assets/Admin/trash.png';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -27,7 +35,20 @@ const useStyles = makeStyles(() => ({
     border: '1px solid #00B4D8',
     borderRadius: "20px",
   },
-
+  pagination: {
+    position: "absolute",
+    bottom: "10px",
+    left: "45%"
+  },
+  actionButtonContainer: {
+    padding: "8px 0 0 2px",    
+    height: "100%",
+    margin: "0",
+  },
+  actionButton: {
+    width: "20x",
+    height: "20px",
+  },
 }));
 const createData = (name, role, latestAccessTime) => {
   return {name, role, latestAccessTime}
@@ -57,7 +78,7 @@ const Member = () => {
                 <TableCell style={{width:"50%"}}>Tên</TableCell>
                 <TableCell align="left">Quyền</TableCell>
                 <TableCell align="left">Truy cập gần nhất</TableCell>
-                <TableCell align="left">Action</TableCell>
+                <TableCell align="left" style={{width: "120px"}}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -69,11 +90,28 @@ const Member = () => {
                   <TableCell align="left">{row.name}</TableCell>
                   <TableCell align="left">{row.role}</TableCell>
                   <TableCell align="left">{row.latestAccessTime}</TableCell>
+                  <div className={styles.actionButtonContainer}>
+                      <IconButton>
+                        <img className={styles.actionButton} src={ShowIcon} alt='ShowIcon' />
+                      </IconButton>
+                      <IconButton>
+                        <img className={styles.actionButton} src={DeleteIcon} alt='DeleteIcon' />
+                      </IconButton>
+                      <IconButton>
+                        <img className={styles.actionButton} src={EditIcon} alt='EditIcon' />
+                      </IconButton>
+                    </div>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
+        <div className={styles.pagination}>
+          <Pagination 
+            count={10}
+            color='tertiary'
+          />
+        </div>
       </div>
     </div>
   );

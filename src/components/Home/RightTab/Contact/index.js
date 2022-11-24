@@ -1,37 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AVT from "assets/Home/RightTab/avatar.png";
 import { Avatar, Button } from "@mui/material";
+import { getUserData } from "helpers/firebase/db";
 
-export const Contact = () => {
-  const [listFriend, setListFriend] = useState([
-    {
-      url: AVT,
-      name: "Hoàng Nhật Hà",
-    },
-    {
-      url: AVT,
-      name: "Nguyễn Nhật Anh",
-    },
-    {
-      url: AVT,
-      name: "Nguyễn Xuân Mạnh",
-    },
-    {
-      url: AVT,
-      name: "Bùi Nguyễn Gia Huy",
-    },
-  ]);
+export const Contact = ({ userData }) => {
+  const [data, setData] = useState([]);
+  // const [currentChat, setCurrentChat] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setData(await Promise.all(userData.listFriends
+        .map(async (item) => await getUserData(item))));
+    };
+
+    fetchData();
+  }, [])
 
   return (
     <>
       <div className="mainTitleRightTab">Người liên hệ</div>
-      {listFriend.map((item) => (
+      {data && data.map((item) => (
         <Button
+          key={item.uid}
           fullWidth
           startIcon={
             <Avatar
-              alt={item.name}
-              src={item.url}
+              alt={item.fullName}
+              src={item.photoUrl || AVT}
               sx={{ width: 30, height: 30 }}
             />
           }
@@ -43,7 +38,7 @@ export const Contact = () => {
             color: "black",
           }}
         >
-          {item.name}
+          {item.fullName}
         </Button>
       ))}
     </>

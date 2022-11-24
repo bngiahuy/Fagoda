@@ -5,10 +5,11 @@ export const ItemList = ({ content }) => {
   return (
     <>
       <div className="mainTitleRightTab">{content.title}</div>
-      {content.itemList.map((item) => (
+      {content.itemList.map((item, index) => (
         <Button
+          key={index}
           fullWidth
-          startIcon={<img src={item.url} className="imageRightTab" />}
+          startIcon={<img alt={item.title} src={item.url} className="imageRightTab" />}
           style={{
             display: "flex",
             justifyContent: "flex-start",

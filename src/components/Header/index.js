@@ -17,17 +17,17 @@ import {
   TextField,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import { logOut } from "helpers/firebase/auth";
 
-export const Header = () => {
+export const Header = ({ userData }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
-  const [auth, setAuth] = useState(true);
 
   useEffect(() => {
     if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
       setEnable([true, true, true, true, true, true, true]);
-    else if (pathname === "/login")
+    else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
     else if (pathname === "/admin")
       setEnable([false, false, false, false, false, true, true]);
@@ -50,9 +50,9 @@ export const Header = () => {
         />
       </IconButton>
 
-      {enable[0] && <Button
+      {enable[0] && userData && <Button
         startIcon={
-          <Avatar alt="avatar" src={AVT} sx={{ width: 30, height: 30 }} />
+          <Avatar alt="avatar" src={userData.photoUrl || AVT} sx={{ width: 30, height: 30 }} />
         }
         style={{
           fontSize: "13px",
@@ -63,7 +63,7 @@ export const Header = () => {
         }}
         onClick={() => navigate("/profile")}
       >
-        Johnny Nguyễn
+        {userData.fullName}
       </Button>}
 
       {enable[1] && <div className="searchFagoda">
@@ -108,9 +108,16 @@ export const Header = () => {
       {enable[6] &&
         <IconButton
           style={{ position: "fixed", right: "20px" }}
-          onClick={() => setAuth(!auth)}
+          onClick={() => {
+            if (userData) {
+              logOut();
+            }
+            else {
+              navigate("/signin")
+            }
+          }}
         >
-          <img alt="logout" src={auth ? Logout : Login} className="imageHeader" />
+          <img alt="logout" src={userData ? Logout : Login} className="imageHeader" />
         </IconButton>}
     </div>
   );

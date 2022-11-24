@@ -3,7 +3,7 @@ import './Profile.css'
 import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
 import CoverKhachHang from 'assets/Profile/AnhBiaKhachHang.jpg';
-import avatar from 'assets/Profile/avatar.jpg';
+import AVT from "assets/Header/user.png";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TourIcon from '@mui/icons-material/Tour';
 import MovingIcon from '@mui/icons-material/Moving';
@@ -13,7 +13,12 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 
-
+function listposts(userData) {
+  // const lst = userData.listPosts;
+  // if (lst) {
+  //   return <Post />;
+  // }
+}
 
 export default function Profile({userData}) {
   
@@ -26,7 +31,7 @@ export default function Profile({userData}) {
             </div>
             <div id="profile-d">
               <div id="profile-pic">
-                <img src={userData.photoUrl || avatar} alt='Avatar'></img>
+                <img src={userData.photoUrl || AVT} alt='Avatar'></img>
               </div>
               <div id='u-name'>{userData.fullName}</div>
               

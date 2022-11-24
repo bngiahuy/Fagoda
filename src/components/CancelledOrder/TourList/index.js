@@ -19,6 +19,9 @@ const TourList = () => {
           sx={{
             background: status.chosen === "waiting" && "#EDEDED",
             height: "50px",
+            "&:hover": {
+              backgroundColor: "#DBDBDB",
+            },
           }}
           // className="status-button"
         >
@@ -31,6 +34,9 @@ const TourList = () => {
           sx={{
             background: status.chosen === "completed" && "#EDEDED",
             height: "50px",
+            "&:hover": {
+              backgroundColor: "#DBDBDB",
+            },
           }}
           // className="status-button"
         >

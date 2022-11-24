@@ -108,7 +108,7 @@ export const Header = ({ userData }) => {
         </Popup>}
 
       {enable[4] && <IconButton
-        style={{ position: "fixed", right: "120px" }}
+        style={{ position: "fixed", right: "120px"  }}
         onClick={() => navigate("/cancelled_order")}
       >
         <img alt="cart" src={Cart} className="imageHeader" />

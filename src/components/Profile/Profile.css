@@ -16,10 +16,14 @@
     z-index: 2;
   }
 #profile-upper {
-    width: 50%;
-    margin-left: 24%;
-    margin-right: 24%;
+    width: 100%;
+    margin-left: 380px;
+    margin-right: 380px;
+    margin-top: 3px;
     position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* display: flex; */
   }
 
   #abroad {
@@ -115,13 +119,12 @@
 
 #listposts {
     width: 100%;
-    height: 100px;
-    top: 200px;
-    margin-top: 13px;
-    margin-left: auto;
-    margin-right: auto;
+    /* height: 80%; */
+    /* margin-top: ; */
+    position: absolute ;
+    display: block;
+    
     /* display: flex; */
-    position: relative;
 
     background-color: white;
 }

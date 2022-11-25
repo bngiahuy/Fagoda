@@ -14,10 +14,50 @@ import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 
 function listposts(userData) {
-  // const lst = userData.listPosts;
-  // if (lst) {
-  //   return <Post />;
-  // }
+    if (userData.role == "customer") {
+        return (
+          <div id='listposts'>
+            <span style={{
+              padding: "9px",
+              marginLeft: "15px",
+              position: "absolute",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'absolute',
+                fontSize: '15px',
+                fontWeight: 'italic',
+                padding: '9px',
+                margin: '30px auto auto 15px',
+            }}>
+              Bạn không có hoạt động gì gần đây
+            </span>
+          </div>
+        );
+    }
+    return (
+      <div id='listposts'>
+            <span style={{ 
+              padding: "9px",
+              marginLeft: "15px",
+              position: "absolute",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'absolute',
+                fontSize: '15px',
+                fontWeight: 'italic',
+                padding: '9px',
+                margin: '30px auto auto 15px',
+            }}>
+              Bạn  có hoạt động gì gần đây
+            </span>
+          </div>
+    );
 }
 
 export default function Profile({userData}) {
@@ -149,26 +189,7 @@ export default function Profile({userData}) {
                 </span>
               </div>
             </div>
-          <div id='listposts'>
-          <span style={{
-                  padding: "9px",
-                  marginLeft: "15px",
-                  position: "absolute",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}>Hoạt động gần đây
-                </span>
-          <span style={{
-              position: 'absolute',
-              fontSize: '15px',
-              fontWeight: 'italic',
-              padding: '9px',
-              margin: '30px auto auto 15px',
-          }}>
-            Bạn không có hoạt động gì gần đây
-          </span>
-
-          </div>
+          {listposts(userData)}
         </div>
         <RightTab userData={userData}/>
     </div>

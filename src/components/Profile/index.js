@@ -3,7 +3,7 @@ import './Profile.css'
 import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
 import CoverKhachHang from 'assets/Profile/AnhBiaKhachHang.jpg';
-import avatar from 'assets/Profile/avatar.jpg';
+import AVT from "assets/Header/user.png";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TourIcon from '@mui/icons-material/Tour';
 import MovingIcon from '@mui/icons-material/Moving';
@@ -13,7 +13,52 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 
-
+function listposts(userData) {
+    if (userData.role == "customer") {
+        return (
+          <div id='listposts'>
+            <span style={{
+              padding: "9px",
+              marginLeft: "15px",
+              position: "absolute",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'absolute',
+                fontSize: '15px',
+                fontWeight: 'italic',
+                padding: '9px',
+                margin: '30px auto auto 15px',
+            }}>
+              Bạn không có hoạt động gì gần đây
+            </span>
+          </div>
+        );
+    }
+    return (
+      <div id='listposts'>
+            <span style={{ 
+              padding: "9px",
+              marginLeft: "15px",
+              position: "absolute",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'absolute',
+                fontSize: '15px',
+                fontWeight: 'italic',
+                padding: '9px',
+                margin: '30px auto auto 15px',
+            }}>
+              Bạn  có hoạt động gì gần đây
+            </span>
+          </div>
+    );
+}
 
 export default function Profile({userData}) {
   
@@ -26,7 +71,7 @@ export default function Profile({userData}) {
             </div>
             <div id="profile-d">
               <div id="profile-pic">
-                <img src={userData.photoUrl || avatar} alt='Avatar'></img>
+                <img src={userData.photoUrl || AVT} alt='Avatar'></img>
               </div>
               <div id='u-name'>{userData.fullName}</div>
               
@@ -144,9 +189,7 @@ export default function Profile({userData}) {
                 </span>
               </div>
             </div>
-        </div>
-        <div id='listposts'>
-            eeee
+          {listposts(userData)}
         </div>
         <RightTab userData={userData}/>
     </div>

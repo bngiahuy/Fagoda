@@ -16,10 +16,14 @@
     z-index: 2;
   }
 #profile-upper {
-    width: 50%;
-    margin-left: 24%;
-    margin-right: 24%;
+    width: 100%;
+    margin-left: 380px;
+    margin-right: 380px;
+    margin-top: 3px;
     position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* display: flex; */
   }
 
   #abroad {
@@ -104,22 +108,23 @@
 #ContactInfo {
     position:relative;
     top: 13rem;
-    margin-top: auto;
+    margin-top: 13px;
     background-color: white;
     width: 100%;
     /* width: 700px; */
-    height: 100px;
+    height: auto;
     /* height: 90%; */
     z-index: 1;
 }
 
 #listposts {
-    width: 50%;
-    margin-top: 5cm;
-    margin-left: 24%;
-    margin-right: 24%;
-    display: flex;
-    position: absolute;
+    width: 100%;
+    /* height: 80%; */
+    /* margin-top: ; */
+    position: absolute ;
+    display: block;
+    
+    /* display: flex; */
 
     background-color: white;
 }

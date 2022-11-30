@@ -109,7 +109,7 @@ export const Header = ({ userData }) => {
 
       {enable[4] && <IconButton
         style={{ position: "fixed", right: "120px" }}
-        onClick={() => navigate("/cancelled_order")}
+        onClick={() => navigate("/cancelled-order")}
       >
         <img alt="cart" src={Cart} className="imageHeader" />
       </IconButton>}

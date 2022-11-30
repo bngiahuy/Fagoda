@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Profile from "./components/Profile";
 import CancelledOrder from "./pages/CancelledOrder";
+import SingleTour from "./pages/SingleTour";
+import OrderDetail from "./pages/OrderDetail";
+import CustomerOrder from "./pages/CustomerOrder";
 import { Header } from "./components/Header";
 import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUp";
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from 'helpers/firebase/auth';
-import { getUserData } from 'helpers/firebase/db';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "helpers/firebase/auth";
+import { getUserData } from "helpers/firebase/db";
 // use default theme
 // const theme = createTheme();
 
@@ -36,12 +39,11 @@ function App() {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUserData(await getUserData(user.uid));
-      }
-      else {
+      } else {
         setUserData(null);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div>
@@ -55,8 +57,21 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/home" element={<Home userData={userData} />} />
-              <Route path="/profile" element={<Profile userData={userData} />} />
-              <Route path="/cancelled_order" element={<CancelledOrder />} />
+              <Route
+                path="/profile"
+                element={<Profile userData={userData} />}
+              />
+              <Route path="/cancelled-order" element={<CancelledOrder />} />
+              <Route
+                path="/cancelled-order/single-tour"
+                element={<SingleTour />}
+              />
+              <Route
+                path="/cancelled-order/single-tour/:orderID"
+                element={<OrderDetail />}
+              />
+
+              <Route path="/order" element={<CustomerOrder />} />
             </Routes>
           </div>
         </BrowserRouter>

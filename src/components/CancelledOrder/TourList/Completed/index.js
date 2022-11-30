@@ -3,7 +3,7 @@ import OrderTable from "./OrderTable";
 
 const Completed = () => {
   return (
-    <div className="completed-tab">
+    <div className="tab-view">
       <OrderTable />
     </div>
   );

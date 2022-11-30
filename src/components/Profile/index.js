@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import './Profile.css'
 import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
@@ -12,52 +12,66 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import listPost from './listPost';
 
 function listposts(userData) {
+  // console.log(userData.role)
     if (userData.role == "customer") {
+
         return (
           <div id='listposts'>
             <span style={{
               padding: "9px",
               marginLeft: "15px",
-              position: "absolute",
+              position: "flex",
               fontSize: "18px",
               fontWeight: "bold",
             }}>Hoạt động gần đây
             </span>
             <span style={{
-                position: 'absolute',
+                position: 'flex',
                 fontSize: '15px',
-                fontWeight: 'italic',
+                fontStyle: 'italic',
                 padding: '9px',
-                margin: '30px auto auto 15px',
+                paddingTop: '40px',
+                marginLeft: '-160px'
+                
+                // margin: 'auto',
             }}>
               Bạn không có hoạt động gì gần đây
             </span>
-          </div>
+        </div>
         );
     }
-    return (
-      <div id='listposts'>
-            <span style={{ 
+    else {
+      return (
+        <div id='listposts'>
+            <span style={{
               padding: "9px",
               marginLeft: "15px",
-              position: "absolute",
+              position: "flex",
               fontSize: "18px",
               fontWeight: "bold",
             }}>Hoạt động gần đây
             </span>
             <span style={{
-                position: 'absolute',
+                position: 'flex',
                 fontSize: '15px',
-                fontWeight: 'italic',
+                fontStyle: 'italic',
                 padding: '9px',
-                margin: '30px auto auto 15px',
+                paddingTop: '40px',
+                marginLeft: '-160px'
+                
+                // margin: 'auto',
             }}>
-              Bạn  có hoạt động gì gần đây
+              Bạn không có hoạt động gì gần đây
             </span>
-          </div>
-    );
+        </div>
+
+      );
+    }
+
+    
 }
 
 export default function Profile({userData}) {
@@ -188,8 +202,8 @@ export default function Profile({userData}) {
                   </span>
                 </span>
               </div>
-            </div>
           {listposts(userData)}
+            </div>
         </div>
         <RightTab userData={userData}/>
     </div>

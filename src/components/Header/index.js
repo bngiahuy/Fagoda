@@ -28,7 +28,7 @@ export const Header = ({ userData }) => {
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
 
   useEffect(() => {
-    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
+    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled-order")
       setEnable([true, true, true, true, true, true, true]);
     else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);

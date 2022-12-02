@@ -1,4 +1,4 @@
-import { Avatar, Button, IconButton } from "@mui/material";
+import { Avatar, Button, Dialog, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import daisenMountain from "assets/Home/CenterTab/daisenMountain.jpg"
 import AVT from "assets/Home/CenterTab/user.png";
@@ -13,9 +13,12 @@ import Share from "assets/Home/CenterTab/share.png";
 import Report from "assets/Home/CenterTab/report.png";
 import Liked from "assets/Home/CenterTab/liked.png";
 import Like from "assets/Home/CenterTab/like.png";
+import editPost from "assets/Home/CenterTab/editPost.png";
+import deletePost from "assets/Home/CenterTab/deletePost.png";
 import { getUserData } from "helpers/firebase/db";
+import { useNavigate } from "react-router-dom";
 
-export const Post = ({ post }) => {
+export const Post = ({ post, userData }) => {
   const [data, setData] = useState();
   const buttonMenu = [
     { content: "Bình chọn", url: Vote },
@@ -23,6 +26,9 @@ export const Post = ({ post }) => {
     { content: "Chia sẻ", url: Share },
     { content: "Báo cáo", url: Report }
   ];
+
+  const [openDialog, setOpenDialog] = useState(false)
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +48,30 @@ export const Post = ({ post }) => {
   return (
     <>{data &&
       <div className="postNF">
-        <img alt="img" src={data.photoUrl || daisenMountain} className="imagePostNF" />
+        {userData && userData.role === "business" &&
+          <div className="menuPostNew">
+            {[{ content: "Chỉnh sửa bài viết", url: editPost }, { content: "Xóa bài viết", url: deletePost }].map((item) =>
+              <Button
+                startIcon={<img alt={item.content} src={item.url} className="imageKeyword" />}
+                style={{
+                  textTransform: "none",
+                  fontSize: "12px",
+                  color: "black",
+                  fontWeight: "bold",
+                }}
+                fullWidth
+              >
+                {item.content}
+              </Button>
+            )}
+          </div>
+        }
+        <img
+          alt="img"
+          src={data.photoUrl || daisenMountain}
+          className="imagePostNF"
+          style={{ borderRadius: userData && post.uid === userData.uid ? 0 : "10px 10px 0 0" }}
+        />
         <div className="contentNF">
           <span className="titlePostNF">[{data.title}]</span> <br />
           <span className="contentPostNF">{data.content}</span><br />
@@ -110,11 +139,28 @@ export const Post = ({ post }) => {
                   fontWeight: "bold",
                 }}
                 fullWidth
+                onClick={() => {
+                  if (!userData) setOpenDialog(true);
+                }}
               >
                 {item.content}
               </Button>
             )}
           </div>
+
+          <Dialog open={openDialog} PaperProps={{ style: { borderRadius: "25px" } }}>
+            <div style={{ margin: "25px" }}>
+              Bạn vui lòng đăng nhập để sử dụng tính năng này.
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-around", marginBottom: "25px" }}>
+              <Button variant="contained" onClick={() => navigate("/signin")}>
+                Đăng nhập
+              </Button>
+              <Button variant="contained" color="error" onClick={() => setOpenDialog(false)}>
+                Hủy
+              </Button>
+            </div>
+          </Dialog>
 
           {data.comments.map((item) =>
             <div key={item.uid} className="commentPostNF">

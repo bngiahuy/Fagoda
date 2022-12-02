@@ -170,6 +170,7 @@ export const SignUp = () => {
 						<div className={styles.formText}>Mật khẩu</div>
 						<TextField
 							fullWidth
+							type="password"
 							value={data.password}
 							onChange={(event) => setData({ ...data, password: event.target.value })}
 						/>
@@ -178,6 +179,7 @@ export const SignUp = () => {
 						<div className={styles.formText}>Xác nhận mật khẩu</div>
 						<TextField
 							fullWidth
+							type="password"
 							value={data.confirmPassword}
 							onChange={(event) => setData({ ...data, confirmPassword: event.target.value })}
 						/>

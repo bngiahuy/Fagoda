@@ -108,11 +108,11 @@ export const Header = ({ userData }) => {
         </Popup>}
 
       {enable[4] && <IconButton
-        style={{ position: "fixed", right: "120px" }}
-        onClick={() => navigate("/cancelled-order")}
-      >
-        <img alt="cart" src={Cart} className="imageHeader" />
-      </IconButton>}
+          style={{ position: "fixed", right: "120px" }}
+          onClick={() => navigate(userData && userData.role === "business" ? "/cancelled-order" : "/order")}
+        >
+          <img alt="cart" src={Cart} className="imageHeader" />
+        </IconButton>}
 
       {enable[5] &&
         <Popup

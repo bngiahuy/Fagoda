@@ -4,7 +4,7 @@ import Logo from "assets/Header/logo.png";
 import AVT from "assets/Header/user.png";
 import Search from "assets/Header/search.png";
 import Notification from "assets/Header/notification.png";
-import Messages from "assets/Header/messages.png";
+import Message from "assets/Header/messages.png";
 import Cart from "assets/Header/cart.png";
 import Setting from "assets/Header/setting.png";
 import Logout from "assets/Header/logout.png";
@@ -17,14 +17,18 @@ import {
   TextField,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import { logOut } from "helpers/firebase/auth";
+import Popup from 'reactjs-popup';
+import { Notifications } from "./Notifications";
+import { Messages } from "./Messages";
 
-export const Header = ({ auth, setAuth }) => {
+export const Header = ({ userData }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
 
   useEffect(() => {
-    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
+    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled-order")
       setEnable([true, true, true, true, true, true, true]);
     else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
@@ -49,9 +53,9 @@ export const Header = ({ auth, setAuth }) => {
         />
       </IconButton>
 
-      {enable[0] && <Button
+      {enable[0] && userData && <Button
         startIcon={
-          <Avatar alt="avatar" src={AVT} sx={{ width: 30, height: 30 }} />
+          <Avatar alt="avatar" src={userData.photoUrl || AVT} sx={{ width: 30, height: 30 }} />
         }
         style={{
           fontSize: "13px",
@@ -62,7 +66,7 @@ export const Header = ({ auth, setAuth }) => {
         }}
         onClick={() => navigate("/profile")}
       >
-        Johnny Nguyễn
+        {userData.fullName}
       </Button>}
 
       {enable[1] && <div className="searchFagoda">
@@ -85,31 +89,65 @@ export const Header = ({ auth, setAuth }) => {
         />
       </div>}
 
-      {enable[2] && <IconButton style={{ position: "fixed", right: "220px" }}>
-        <img alt="logout" src={Notification} className="imageHeader" />
-      </IconButton>}
+      {enable[2] &&
+        <Popup
+          trigger={<IconButton style={{ position: "fixed", right: "220px" }}>
+            <img alt="notification" src={Notification} className="imageHeader" />
+          </IconButton>}
+        >
+          <Notifications />
+        </Popup>}
 
-      {enable[3] && <IconButton style={{ position: "fixed", right: "170px" }}>
-        <img alt="messages" src={Messages} className="imageHeader" />
-      </IconButton>}
+      {enable[3] &&
+        <Popup
+          trigger={<IconButton style={{ position: "fixed", right: "170px" }}>
+            <img alt="message" src={Message} className="imageHeader" />
+          </IconButton>}
+        >
+          <Messages />
+        </Popup>}
 
       {enable[4] && <IconButton
         style={{ position: "fixed", right: "120px" }}
-        onClick={() => navigate("/cancelled_order")}
+        onClick={() => navigate("/cancelled-order")}
       >
         <img alt="cart" src={Cart} className="imageHeader" />
       </IconButton>}
 
-      {enable[5] && <IconButton style={{ position: "fixed", right: "70px" }}>
-        <img alt="setting" src={Setting} className="imageHeader" />
-      </IconButton>}
+      {enable[5] &&
+        <Popup
+          trigger={<IconButton style={{ position: "fixed", right: "70px" }}>
+            <img alt="setting" src={Setting} className="imageHeader" />
+          </IconButton>}
+        >
+          <div className="settingHeader">
+            {["Chung", "Bảo mật", "Quyền riêng tư"].map((item) =>
+              <Button
+                style={{
+                  textTransform: "none",
+                  color: "black",
+                  fontWeight: "bold"
+                }}
+              >
+                {item}
+              </Button>
+            )}
+          </div>
+        </Popup>}
 
       {enable[6] &&
         <IconButton
           style={{ position: "fixed", right: "20px" }}
-          onClick={() => setAuth(!auth)}
+          onClick={() => {
+            if (userData) {
+              logOut();
+            }
+            else {
+              navigate("/signin")
+            }
+          }}
         >
-          <img alt="logout" src={auth ? Logout : Login} className="imageHeader" />
+          <img alt="logout" src={userData ? Logout : Login} className="imageHeader" />
         </IconButton>}
     </div>
   );

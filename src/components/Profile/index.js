@@ -1,45 +1,93 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import './Profile.css'
 import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
 import CoverKhachHang from 'assets/Profile/AnhBiaKhachHang.jpg';
-import avatar from 'assets/Profile/avatar.jpg';
+import AVT from "assets/Header/user.png";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import TourIcon from '@mui/icons-material/Tour';
 import MovingIcon from '@mui/icons-material/Moving';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import listPost from './listPost';
 
+function listposts(userData) {
+  // console.log(userData.role)
+    if (userData.role == "customer") {
 
+        return (
+          <div id='listposts'>
+            <span style={{
+              padding: "9px",
+              marginLeft: "15px",
+              position: "flex",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'flex',
+                fontSize: '15px',
+                fontStyle: 'italic',
+                padding: '9px',
+                paddingTop: '40px',
+                marginLeft: '-160px'
+                
+                // margin: 'auto',
+            }}>
+              Bạn không có hoạt động gì gần đây
+            </span>
+        </div>
+        );
+    }
+    else {
+      return (
+        <div id='listposts'>
+            <span style={{
+              padding: "9px",
+              marginLeft: "15px",
+              position: "flex",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}>Hoạt động gần đây
+            </span>
+            <span style={{
+                position: 'flex',
+                fontSize: '15px',
+                fontStyle: 'italic',
+                padding: '9px',
+                paddingTop: '40px',
+                marginLeft: '-160px'
+                
+                // margin: 'auto',
+            }}>
+              Bạn không có hoạt động gì gần đây
+            </span>
+        </div>
 
+      );
+    }
 
-export default function Profile() {
+    
+}
+
+export default function Profile({userData}) {
+  
   return (
     <div className='profile'>
         <LeftTab />
-        {/* <div className='content'>
-          <div>
-            <img className='cover-img' src={CoverKhachHang}></img>
-            <span >
-              <p id='name-user'>Huy Bùi</p>
-              </span>
-
-          </div>
-            <div idName='avatar-circle'>
-            <img className='avatar' src={avatar}></img>
-            </div>
-
-            
-        </div> */}
-
         <div id="profile-upper">
             <div id="profile-banner-image">
               <img src={CoverKhachHang} alt='Cover'></img>
             </div>
             <div id="profile-d">
               <div id="profile-pic">
-                <img src={avatar} alt='Avatar'></img>
+                <img src={userData.photoUrl || AVT} alt='Avatar'></img>
               </div>
-              <div id="u-name">Huy Bùi</div>
+              <div id='u-name'>{userData.fullName}</div>
               
               <div className='short-info'>
                 <CalendarMonthIcon style={{
@@ -95,17 +143,69 @@ export default function Profile() {
                   fontWeight: "bold",
                 }}>Thông tin liên hệ
                 </span>
-              {/* <span style={{
-                position: "absolute",
-                marginLeft: "300px",
-                fontSize: "13px",
-              }}>
-                <PlaceOutlinedIcon />
-                Thủ Đức, Hồ Chí Minh
-              </span> */}
+              <div className='u-location'>
+                <span style={{
+                  marginTop: '10px',
+                  paddingBottom: '30px'
+                }}>
+                  <PlaceOutlinedIcon sx={{
+                    fontSize: 'medium',
+                    marginLeft: '10%',
+                    
+                    color: '#7E7E7E'
+                  }} /> Thủ Đức, Hồ Chí Minh
+                  <span style={{
+                    marginLeft: '10%'
+                  }}>
+                    <FacebookIcon sx={{
+                      fontSize: 'medium',
+                      marginRight: '5px',
+                      color: '#7E7E7E'
+                    }} /> <a style={{
+                      textDecoration: 'none',
+                      
+                    }} href="#">{userData.email.split("@")[0]}</a>
+                  </span>
+                  <span style={{
+                    marginLeft: '10%',
+                    
+                  }}>
+                    <LinkedInIcon sx={{
+                      fontSize: 'medium',
+                      marginRight: '5px',
+                      color: '#7E7E7E'
+                    }} /><a style={{
+                      textDecoration: 'none',
+                      position: 'absolute'
+                    }} href="#">{userData.email.split("@")[0]}</a>
+                  </span>
+                  <span style={{
+                      marginLeft: '50px',
+                      
+                    }}>
+                      <SmartphoneIcon sx={{
+                        fontSize: 'medium',
+                        marginRight: '5px',
+                        color: '#7E7E7E'
+                      }} /> 0123456789
+                  </span>
+
+                  <span style={{
+                      position: 'absolute',
+                      marginLeft: '14%'
+                    }}>
+                      <MailOutlinedIcon sx={{
+                        fontSize: 'medium',
+                        marginRight: '5px',
+                        color: '#7E7E7E'
+                      }} /> {userData.email}
+                  </span>
+                </span>
+              </div>
+          {listposts(userData)}
             </div>
         </div>
-        <RightTab />
+        <RightTab userData={userData}/>
     </div>
   )
 }

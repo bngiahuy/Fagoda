@@ -69,7 +69,7 @@ export const CenterTab = ({ userData }) => {
               )}
             </div>
           </div>}
-        {posts.map((item) => <Post key={item.pid} post={item} />)}
+        {posts.map((item) => <Post key={item.pid} post={item} userData={userData} />)}
       </div>
     </div>
   );

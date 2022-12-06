@@ -28,7 +28,7 @@ export const Header = ({ userData }) => {
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
 
   useEffect(() => {
-    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled_order")
+    if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled-order")
       setEnable([true, true, true, true, true, true, true]);
     else if (pathname === "/signin" || pathname === "/signup")
       setEnable([false, false, false, false, false, false, false]);
@@ -108,11 +108,11 @@ export const Header = ({ userData }) => {
         </Popup>}
 
       {enable[4] && <IconButton
-        style={{ position: "fixed", right: "120px" }}
-        onClick={() => navigate("/cancelled-order")}
-      >
-        <img alt="cart" src={Cart} className="imageHeader" />
-      </IconButton>}
+          style={{ position: "fixed", right: "120px" }}
+          onClick={() => navigate(userData && userData.role === "business" ? "/cancelled-order" : "/order")}
+        >
+          <img alt="cart" src={Cart} className="imageHeader" />
+        </IconButton>}
 
       {enable[5] &&
         <Popup

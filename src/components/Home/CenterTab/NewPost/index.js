@@ -1,11 +1,13 @@
-import { Avatar, Button, IconButton, TextField } from "@mui/material";
+import { Avatar, Backdrop, Button, CircularProgress, IconButton, TextField } from "@mui/material";
 import Close from "assets/Home/CenterTab/close.png";
 import AVT from "assets/Home/CenterTab/user.png";
 import addMedia from "assets/Home/CenterTab/addMedia.png";
 import addTour from "assets/Home/CenterTab/addTour.png";
-import React from "react";
+import React, { useState } from "react";
 
 export const NewPost = ({ userData, close }) => {
+	const [posting, setPosting] = useState(false);
+
 	return (
 		<div className="newPost">
 			<IconButton
@@ -58,13 +60,25 @@ export const NewPost = ({ userData, close }) => {
 				</div>
 			</div>
 			<div style={{ display: "flex", padding: "0 20px 20px 20px" }}>
-				<Button fullWidth variant="contained" style={{ marginRight: "10px" }}>
+				<Button
+					fullWidth
+					variant="contained"
+					style={{ marginRight: "10px" }}
+					onClick={() => {
+						setPosting(true);
+						setTimeout(() => {
+							close();
+							setPosting(false);
+						}, 3000);
+					}}
+				>
 					Đăng bài
 				</Button>
-				<Button fullWidth variant="contained" color="warning">
+				<Button fullWidth variant="contained" color="warning" onClick={() => setPosting(true)}>
 					Xem trước
 				</Button>
 			</div>
+			<Backdrop open={posting}><CircularProgress /></Backdrop>
 		</div>
 	);
 }

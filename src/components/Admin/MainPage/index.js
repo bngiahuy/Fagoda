@@ -17,8 +17,8 @@ const useStyles = makeStyles(() => ({
     marginLeft: "20px",
     border: '1px solid #00B4D8',
     borderRadius: "20px",
-    height: "500px",
-    width: "950px",
+    width: "1200px",
+    height: "600px",
   },
 
 }));

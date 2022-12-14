@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
     padding: "20px",
     border: '1px solid #00B4D8',
     borderRadius: "10px",
-    height: "450px",
-    width: "950px",
+    width: "1200px",
+    height: "600px",
   },
 
 }));

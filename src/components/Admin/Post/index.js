@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import Pagination from '@mui/material/Pagination';
-
+import Box from '@mui/material/Box';
+import {Button} from '@mui/material';
+import Modal from '@mui/material/Modal';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 //icons
 import { IconButton } from '@mui/material';
 import ShowIcon from '../../../assets/Admin/show.png';
@@ -30,8 +37,8 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.2em",
   },
   content: {
-    height: "500px",
-    width: "950px",
+    width: "1200px",
+    height: "600px",
     marginLeft: "20px",
     padding: "10px",
     border: '1px solid #00B4D8',
@@ -51,29 +58,45 @@ const useStyles = makeStyles(() => ({
     width: "20x",
     height: "20px",
   },
-
+  box:{
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-40%, -50%)',
+    width: '1000px',
+    height: '700px',
+    background: "linear-gradient(180deg, #90E0EF 0%, #E4E5E6 100%)",
+    border: '2px solid #ddd',
+    borderRadius: '10px',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 }));
-const createData = (postName, author, latestEditTime) => {
-  return {postName, author, latestEditTime}
-};
+
 const Member = () => {
   const styles = useStyles();
-  const rows = [
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"),
-    createData("Chuyến phiêu lưu vào lòng đất", "Nguyễn Nhật Anh", "1 giây trước"), 
-  ]
-
+  const [openModal, setOpenModal] = useState(false)
+  const [openDialog, setOpenDialog] = useState(false)
+  const [deletePost, setDeletePost] = useState({})
+  const [rows, setRows] = useState([
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Nguyễn Hoàng Bảo Hùng", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Nguyễn Xuân Mạnh", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Bùi Nguyễn Gia Huy", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Hoàng Nhật Hà", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Nguyễn Nhật Anh", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Nguyễn Hoàng Bảo Hùng", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Nguyễn Xuân Mạnh", latestEditTime: "1 giây trước"},
+    {postName: "Chuyến phiêu lưu vào lòng đất", author: "Bùi Nguyễn Gia Huy", latestEditTime: "1 giây trước"},
+  ])
+  const handleDelete = (row) => {
+    setRows(rows.filter((_row) => _row !== row))
+  }
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
         <h3 className={styles.title}>BÀI VIẾT</h3>
       </div>
-      <div className={styles.content}>  
+      <div className={styles.content}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead sx={{backgroundColor: "#90E0EF"}}>
@@ -85,7 +108,7 @@ const Member = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {rows.map((row, idx) => (
                 <TableRow sx={{width:"50%"}} key={row.postName}>
                   {/* <TableCell component="th" scope="row">
                     {row.name}
@@ -94,11 +117,15 @@ const Member = () => {
                   <TableCell align="left">{row.author}</TableCell>
                   <TableCell align="left">{row.latestEditTime}</TableCell>
                     <div className={styles.actionButtonContainer}>
-                      <IconButton>
+                      <IconButton onClick={() => setOpenModal(true)}>
                         <img className={styles.actionButton} src={ShowIcon} alt='ShowIcon' />
                       </IconButton>
-                      <IconButton>
+                      <IconButton onClick={() => {
+                        setOpenDialog(true)
+                        setDeletePost(row)
+                      }}>
                         <img className={styles.actionButton} src={DeleteIcon} alt='DeleteIcon' />
+                        
                       </IconButton>
                       <IconButton>
                         <img className={styles.actionButton} src={EditIcon} alt='EditIcon' />
@@ -116,6 +143,40 @@ const Member = () => {
           />
         </div>
       </div>
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className={styles.box}>
+          <div style={{width: "600px"}}>
+            {/* <h2 className={styles.title}>[NHẬT BẢN - ĐỊA ĐIỂM ĐƯỢC YÊU THÍCH NHẤT NĂM 2069]</h2> */}
+          </div>
+        </Box>
+      </Modal>
+      <Dialog
+        open={openDialog}
+        keepMounted
+        onClose={() => setOpenDialog(false)}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Cảnh báo !!!"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Bạn có chắc chắn là sẽ xoá bài viết không?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenDialog(false)}>Huỷ</Button>
+          <Button onClick={() => {
+            setOpenDialog(false)
+            handleDelete(deletePost)
+          }}>
+            Chắc chắn
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

@@ -28,8 +28,8 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.2em",
   },
   content: {
-    height: "500px",
-    width: "950px",
+    width: "1200px",
+    height: "600px",
     marginLeft: "20px",
     padding: "10px",
     border: '1px solid #00B4D8',

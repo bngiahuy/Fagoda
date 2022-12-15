@@ -88,7 +88,7 @@ export const Post = ({ post, userData }) => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start"
-                  }}
+                  }} onClick={() => navigate("/tourdetail")}
                 >
                   <div>
                     Tour {item.day} ngày {item.night} đêm - Khởi hành: {item.start} - Phương tiện: {item.vehicle}

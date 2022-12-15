@@ -79,40 +79,42 @@ const Admin = () => {
         <div className={styles.navButtonContainer}>
           <Button className={styles.button}
             onClick={() => setPage('MainPage')}
+            variant={page==='MainPage' ? "contained" : 'nul'}
           >
             Trang chủ
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Member')}
+            variant={page==='Member' ? "contained" : 'nul'}
           >
             Thành viên
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Post')}
+            variant={page==='Post' ? "contained" : 'nul'}
           >
             Bài viết
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Survey')}
+            variant={page==='Survey' ? "contained" : 'nul'}
           >
             Khảo sát
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Analysis')}
+            variant={page==='Analysis' ? "contained" : 'nul'}
           >
             Phân tích
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Event')}
+            variant={page==='Event' ? "contained" : 'nul'}
           >
             Sự kiện
           </Button>
         </div>
-        {/* <MainPage/> */}
-        {/* <Analysis /> */}
-        {/* <Member/> */}
-        {/* <Post /> */}
-
+        
       </div>
       {page === 'MainPage' && <MainPage />}
       {page === 'Member'   && <Member />}

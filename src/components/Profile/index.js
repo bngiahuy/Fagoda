@@ -13,6 +13,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import listPost from './listPost';
+import { useNavigate } from "react-router-dom";
 
 function listposts(userData) {
   // console.log(userData.role)
@@ -75,137 +76,143 @@ function listposts(userData) {
 }
 
 export default function Profile({userData}) {
-  
-  return (
-    <div className='profile'>
-        <LeftTab />
-        <div id="profile-upper">
-            <div id="profile-banner-image">
-              <img src={CoverKhachHang} alt='Cover'></img>
-            </div>
-            <div id="profile-d">
-              <div id="profile-pic">
-                <img src={userData.photoUrl || AVT} alt='Avatar'></img>
-              </div>
-              <div id='u-name'>{userData.fullName}</div>
-              
-              <div className='short-info'>
-                <CalendarMonthIcon style={{
-                  fill: "#20ECBB",
-                  marginRight: "7px",
-                }}/>
-                Tham gia từ 27/10/2022
+  const navigate = useNavigate();
+  if(userData) {
+      return (
+        <div className='profile'>
+            <LeftTab />
+            <div id="profile-upper">
+                <div id="profile-banner-image">
+                  <img src={CoverKhachHang} alt='Cover'></img>
                 </div>
-              <div className='short-info'>
-                <TourIcon style={{
-                  color: '20ECBB',
-                  marginRight: "7px",
-                }}/>
-                Đã tham gia 10 chuyến đi
+                <div id="profile-d">
+                  <div id="profile-pic">
+                    <img src={userData.photoUrl || AVT} alt='Avatar'></img>
+                  </div>
+                  <div id='u-name'>{userData.fullName || null}</div>
+                  
+                  <div className='short-info'>
+                    <CalendarMonthIcon style={{
+                      fill: "#20ECBB",
+                      marginRight: "7px",
+                    }}/>
+                    Tham gia từ 27/10/2022
+                    </div>
+                  <div className='short-info'>
+                    <TourIcon style={{
+                      color: '20ECBB',
+                      marginRight: "7px",
+                    }}/>
+                    Đã tham gia 10 chuyến đi
+                    </div>
+                  <div className='short-info'>
+                    <MovingIcon style={{
+                      color: '20ECBB',
+                      marginRight: "7px",
+                    }}/>
+                    Các địa điểm đã đến
+                    </div>
+                  <div className='short-info'>
+                      <span id='abroad'>
+                        QUỐC TẾ
+                      </span>
+                      <span style={{
+                        fontSize: "15px",
+                      }}>
+                        Nhật Bản, Hàn Quốc
+                        </span>
+                    
+                  </div>
+                  <div className='short-info'>
+                  <span id='not-abroad'>
+                      TRONG NƯỚC
+                      </span>
+                      <span style={{
+                        fontSize: "15px",
+                      }}>
+                        Ninh Bình, Hạ Long, Hà Nội, Hồ Chí Minh
+    
+                      </span>
+                  </div>
                 </div>
-              <div className='short-info'>
-                <MovingIcon style={{
-                  color: '20ECBB',
-                  marginRight: "7px",
-                }}/>
-                Các địa điểm đã đến
-                </div>
-              <div className='short-info'>
-                  <span id='abroad'>
-                    QUỐC TẾ
-                  </span>
+                <div id='ContactInfo'>
+                    
                   <span style={{
-                    fontSize: "15px",
-                  }}>
-                    Nhật Bản, Hàn Quốc
+                      padding: "9px",
+                      marginLeft: "15px",
+                      position: "absolute",
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                    }}>Thông tin liên hệ
                     </span>
-                
-              </div>
-              <div className='short-info'>
-              <span id='not-abroad'>
-                  TRONG NƯỚC
-                  </span>
-                  <span style={{
-                    fontSize: "15px",
-                  }}>
-                    Ninh Bình, Hạ Long, Hà Nội, Hồ Chí Minh
-
-                  </span>
-              </div>
-            </div>
-            <div id='ContactInfo'>
-                
-              <span style={{
-                  padding: "9px",
-                  marginLeft: "15px",
-                  position: "absolute",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}>Thông tin liên hệ
-                </span>
-              <div className='u-location'>
-                <span style={{
-                  marginTop: '10px',
-                  paddingBottom: '30px'
-                }}>
-                  <PlaceOutlinedIcon sx={{
-                    fontSize: 'medium',
-                    marginLeft: '10%',
-                    
-                    color: '#7E7E7E'
-                  }} /> Thủ Đức, Hồ Chí Minh
-                  <span style={{
-                    marginLeft: '10%'
-                  }}>
-                    <FacebookIcon sx={{
-                      fontSize: 'medium',
-                      marginRight: '5px',
-                      color: '#7E7E7E'
-                    }} /> <a style={{
-                      textDecoration: 'none',
-                      
-                    }} href="#">{userData.email.split("@")[0]}</a>
-                  </span>
-                  <span style={{
-                    marginLeft: '10%',
-                    
-                  }}>
-                    <LinkedInIcon sx={{
-                      fontSize: 'medium',
-                      marginRight: '5px',
-                      color: '#7E7E7E'
-                    }} /><a style={{
-                      textDecoration: 'none',
-                      position: 'absolute'
-                    }} href="#">{userData.email.split("@")[0]}</a>
-                  </span>
-                  <span style={{
-                      marginLeft: '50px',
-                      
+                  <div className='u-location'>
+                    <span style={{
+                      marginTop: '10px',
+                      paddingBottom: '30px'
                     }}>
-                      <SmartphoneIcon sx={{
+                      <PlaceOutlinedIcon sx={{
                         fontSize: 'medium',
-                        marginRight: '5px',
+                        marginLeft: '10%',
+                        
                         color: '#7E7E7E'
-                      }} /> 0123456789
-                  </span>
-
-                  <span style={{
-                      position: 'absolute',
-                      marginLeft: '14%'
-                    }}>
-                      <MailOutlinedIcon sx={{
-                        fontSize: 'medium',
-                        marginRight: '5px',
-                        color: '#7E7E7E'
-                      }} /> {userData.email}
-                  </span>
-                </span>
-              </div>
-          {listposts(userData)}
+                      }} /> Thủ Đức, Hồ Chí Minh
+                      <span style={{
+                        marginLeft: '10%'
+                      }}>
+                        <FacebookIcon sx={{
+                          fontSize: 'medium',
+                          marginRight: '5px',
+                          color: '#7E7E7E'
+                        }} /> <a style={{
+                          textDecoration: 'none',
+                          
+                        }} href="#">{userData.email.split("@")[0]}</a>
+                      </span>
+                      <span style={{
+                        marginLeft: '8%',
+                        
+                      }}>
+                        <LinkedInIcon sx={{
+                          fontSize: 'medium',
+                          marginRight: '5px',
+                          color: '#7E7E7E'
+                        }} /><a style={{
+                          textDecoration: 'none',
+                          position: 'absolute'
+                        }} href="#">{userData.email.split("@")[0]}</a>
+                      </span>
+                      <span style={{
+                          marginLeft: '50px',
+                          
+                        }}>
+                          <SmartphoneIcon sx={{
+                            fontSize: 'medium',
+                            marginRight: '5px',
+                            color: '#7E7E7E'
+                          }} /> 0123456789
+                      </span>
+    
+                      <span style={{
+                          position: 'absolute',
+                          marginLeft: '14%'
+                        }}>
+                          <MailOutlinedIcon sx={{
+                            fontSize: 'medium',
+                            marginRight: '5px',
+                            color: '#7E7E7E'
+                          }} /> {userData.email}
+                      </span>
+                    </span>
+                  </div>
+              {listposts(userData)}
+                </div>
             </div>
+            <RightTab userData={userData}/>
         </div>
-        <RightTab userData={userData}/>
-    </div>
-  )
+      )
+
+  }
+  else {
+    navigate("/signin");
+  }
 }

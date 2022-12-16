@@ -9,16 +9,15 @@ import { setNewDataUser } from "../db";
 
 export const auth = getAuth(app);
 
-export const signUp = (userInfo) => {
-	createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password)
-		.then((userCredential) => {
-			const user = userCredential.user;
-			setNewDataUser(user.uid, userInfo);
-		})
-		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-		});
+export const signUp = async (userInfo, userRole) => {
+	const userCredential = await createUserWithEmailAndPassword(auth, userInfo.email, userInfo.password).catch((error) => {
+		const errorCode = error.code;
+		const errorMessage = error.message;
+		return null;
+	});
+	const user = userCredential.user;
+	setNewDataUser(user.uid, userInfo, userRole);
+	return user;
 }
 
 export const signIn = async (data) => {

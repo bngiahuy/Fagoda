@@ -1,6 +1,6 @@
 .table {
   width: 100%;
-  height: 500px;
+  height: 80%;
   margin: auto 120px;
   background-color: #ebe8e8;
   box-shadow: 3px 6px 7px rgb(0 0 0 / 0.2);
@@ -11,7 +11,7 @@
 
 .table-title {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   height: 50px;
 }
 
@@ -27,11 +27,11 @@
 
 .table-subtitle ul {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   column-gap: 50px;
   list-style-type: none;
-  padding-left: 20px;
+  padding: 0 20px;
   background-color: #f1f1f1;
   height: 35px;
   font-weight: bolder;
@@ -43,7 +43,7 @@
 
 .row-detail {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   column-gap: 50px;
   padding-left: 20px;

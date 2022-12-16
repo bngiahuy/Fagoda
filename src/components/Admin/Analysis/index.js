@@ -18,8 +18,8 @@ const useStyles = makeStyles(() => ({
     padding: "20px",
     border: '1px solid #00B4D8',
     borderRadius: "10px",
-    height: "450px",
-    width: "950px",
+    width: "1200px",
+    height: "600px",
   },
 
 }));
@@ -28,24 +28,24 @@ const Analysis = () => {
   const styles = useStyles();
   const series = [{
     name: "Access",
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+    data: [100, 411, 354, 513, 492, 342, 669, 931, 548, 731, 412, 122]
   }];
   const options = {
     chart: {
       height: 350,
       type: 'line',
       zoom: {
-        enabled: false
+        enabled: true
       }
     },
     dataLabels: {
       enabled: false
     },
     stroke: {
-      curve: 'straight'
+      curve: 'straight',
     },
     title: {
-      text: 'Product Trends by Month',
+      text: 'Truy cập trong tháng',
       align: 'left'
     },
     grid: {
@@ -55,7 +55,7 @@ const Analysis = () => {
       },
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     }
   };
 

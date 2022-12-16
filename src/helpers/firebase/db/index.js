@@ -8,7 +8,7 @@ import {
 
 const db = getFirestore(app);
 
-export const setNewDataUser = async (uid, userInfo) => {
+export const setNewDataUser = async (uid, userInfo, userRole) => {
 	await setDoc(doc(db, "users", uid), {
 		uid: uid,
 		email: userInfo.email,
@@ -17,6 +17,8 @@ export const setNewDataUser = async (uid, userInfo) => {
 		address: userInfo.address,
 		listFriends: [],
 		listPosts: [],
+		photoUrl: null,
+		role: userRole === "cá nhân" ? "customer" : "business"
 	});
 };
 

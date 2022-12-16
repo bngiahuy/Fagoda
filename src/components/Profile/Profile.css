@@ -1,6 +1,12 @@
 .profile {
-    display: flex;
-    justify-content: space-between;
+  /* width: 100%; */
+  /* height: 100%; */
+  overflow-y: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  /* display: flex; */
+    /* justify-content: space-between; */
     background-color: #F0F2F5;
     height: calc(100vh - 50px);
     width: 100vw;
@@ -13,13 +19,17 @@
     /* width: 700px; */
     height: 30%;
     /* height: 90%; */
-    z-index: 2;
+    z-index: 1;
   }
 #profile-upper {
-    width: 50%;
-    margin-left: 24%;
-    margin-right: 24%;
+    width: 100%;
+    margin-left: 380px;
+    margin-right: 380px;
+    margin-top: 3px;
     position: relative;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
+    /* display: flex; */
   }
 
   #abroad {
@@ -104,22 +114,28 @@
 #ContactInfo {
     position:relative;
     top: 13rem;
-    margin-top: auto;
+    /* display: flex; */
+    margin-top: 13px;
     background-color: white;
     width: 100%;
+    max-height: 80px;
     /* width: 700px; */
-    height: 100px;
+    /* height: auto; */
     /* height: 90%; */
     z-index: 1;
 }
 
 #listposts {
-    width: 50%;
-    margin-top: 5cm;
-    margin-left: 24%;
-    margin-right: 24%;
+    width: 100%;
+    height: auto;
+    top: 10px;
+    /* padding-top: 80%; */
+    /* margin-top: 200px; */
+    position: relative ;
+    /* z-index: 1; */
     display: flex;
-    position: absolute;
+    
+    /* display: flex; */
 
     background-color: white;
 }

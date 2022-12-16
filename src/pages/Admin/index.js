@@ -6,12 +6,13 @@ import Avatar from '../../assets/Header/user.png';
 import MainPage from '../../components/Admin/MainPage';
 import Member from '../../components/Admin/Member';
 import Post from '../../components/Admin/Post';
-import Survey from '../../components/Admin/Survey';
+import Activity from '../../components/Admin/Activity';
 import Analysis from '../../components/Admin/Analysis';
-import Event from '../../components/Admin/Event';
+import Report from '../../components/Admin/Report';
 
 const useStyles = makeStyles(() => ({
   container: {
+    position: 'relative',
     display: 'grid',
     gridTemplateColumns: '200px 1fr',
   },
@@ -59,6 +60,13 @@ const useStyles = makeStyles(() => ({
     color: "#03045E",
     backgroundColor: "#90E0EF"
   },
+  date: {
+    position: "fixed",
+    color: "#00B4D8",
+    fontSize: "1.2em",
+    fontWeight: "bold",
+    bottom: "5vh"
+  },
 }));
 
 const Admin = () => {
@@ -79,47 +87,58 @@ const Admin = () => {
         <div className={styles.navButtonContainer}>
           <Button className={styles.button}
             onClick={() => setPage('MainPage')}
+            variant={page==='MainPage' ? "contained" : 'nul'}
           >
             Trang chủ
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Member')}
+            variant={page==='Member' ? "contained" : 'nul'}
           >
             Thành viên
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Post')}
+            variant={page==='Post' ? "contained" : 'nul'}
           >
             Bài viết
           </Button>
           <Button className={styles.button}
-            onClick={() => setPage('Survey')}
+            onClick={() => setPage('Activity')}
+            variant={page==='Activity' ? "contained" : 'nul'}
           >
-            Khảo sát
+            Hoạt động
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Analysis')}
+            variant={page==='Analysis' ? "contained" : 'nul'}
           >
             Phân tích
           </Button>
           <Button className={styles.button}
-            onClick={() => setPage('Event')}
+            onClick={() => setPage('Report')}
+            variant={page==='Report' ? "contained" : 'nul'}
           >
-            Sự kiện
+            Báo cáo
           </Button>
-        </div>
-        {/* <MainPage/> */}
-        {/* <Analysis /> */}
-        {/* <Member/> */}
-        {/* <Post /> */}
 
+          <div className={styles.date}>
+            <p>
+              {new Date().toLocaleTimeString()}
+            </p>
+            <p>
+              {new Date().toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+        
       </div>
       {page === 'MainPage' && <MainPage />}
       {page === 'Member'   && <Member />}
       {page === 'Post'     && <Post />}
-      {page === 'Survey'   && <Survey />}
+      {page === 'Activity'   && <Activity />}
       {page === 'Analysis' && <Analysis />}
-      {page === 'Event'    && <Event />}
+      {page === 'Report'    && <Report />}
     </div>
   );
 }

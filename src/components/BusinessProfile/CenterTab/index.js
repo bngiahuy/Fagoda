@@ -58,7 +58,7 @@ const CenterTab = ({ userData }) => {
   const [tab, setTab] = useState(0);
   return (
     <div className="centerTab">
-      <div className="newsfeed">
+      <div className="newsfeedProfile">
         <div className="profile-content">
           <div className="top-part">
             <img className="background" src={background} />

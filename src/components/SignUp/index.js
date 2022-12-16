@@ -182,6 +182,10 @@ export const SignUp = () => {
 							type="password"
 							value={data.confirmPassword}
 							onChange={(event) => setData({ ...data, confirmPassword: event.target.value })}
+							onKeyDown={(event) => {
+								if (event.keyCode === 13)
+									signUp(data, user).then((user) => { if (user) navigate("/home") })
+							}}
 						/>
 					</div>
 				</div>

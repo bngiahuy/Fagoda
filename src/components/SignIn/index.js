@@ -130,6 +130,12 @@ export const SignIn = () => {
 					onChange={(event) =>
 						setData({ ...data, password: event.target.value })
 					}
+					onKeyDown={(event) => {
+						if (event.keyCode === 13)
+							signIn(data).then((user) => {
+								if (user) navigate("/home");
+							})
+					}}
 				/>
 				<div className={styles.rememberMeContainer}>
 					<div className={styles.rememberMeBox}>

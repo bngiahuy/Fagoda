@@ -42,7 +42,7 @@ const Analysis = () => {
       enabled: false
     },
     stroke: {
-      curve: 'smooth',
+      curve: 'straight',
     },
     title: {
       text: 'Truy cập trong tháng',

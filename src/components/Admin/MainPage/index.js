@@ -80,7 +80,7 @@ const MainPage = () => {
   const styles = useStyles();
   const series = [{
     name: "Access",
-    data: [100, 411, 354, 513, 492, 342, 669, 931, 548, 731, 412, 122]
+    data: [100, 411, 354, 513, 492, 342, 669, 931, 548, 731, 412, 622]
   }];
   const options = {
     chart: {
@@ -94,7 +94,7 @@ const MainPage = () => {
       enabled: false
     },
     stroke: {
-      curve: 'smooth',
+      curve: 'straight',
     },
     title: {
       text: 'Truy cập trong tháng',

@@ -1,5 +1,5 @@
-import {React, useEffect} from 'react'
-import './Profile.css'
+import {React} from 'react';
+import './Profile.css';
 import { RightTab } from '../../components/Home/RightTab';
 import { LeftTab } from '../../components/Home/LeftTab';
 import CoverKhachHang from 'assets/Profile/AnhBiaKhachHang.jpg';
@@ -12,12 +12,11 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
-import listPost from './listPost';
 import { useNavigate } from "react-router-dom";
 
 function listposts(userData) {
   // console.log(userData.role)
-    if (userData.role == "customer") {
+    if (userData && userData.role === "customer") {
 
         return (
           <div id='listposts'>

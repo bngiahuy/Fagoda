@@ -96,7 +96,7 @@ export const SignIn = () => {
 		<div className={styles.container}>
 			<img src={Background} className={styles.image} alt="" />
 			<div className={styles.signInBox}>
-				<img src={Logo} className={styles.logo} />
+				<img src={Logo} className={styles.logo} alt="" />
 				<div className={styles.signInTitle}>Đăng nhập</div>
 				<div className={styles.signUpPage}>
 					<div className={styles.question}>Chưa có tài khoản?</div>

@@ -11,9 +11,11 @@ import CustomerOrder from "./pages/CustomerOrder";
 import { Header } from "./components/Header";
 import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUp";
+import { TourDetails } from "./pages/TourDetail";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "helpers/firebase/auth";
 import { getUserData } from "helpers/firebase/db";
+import BusinessProfile from "pages/BusinessProfile";
 // use default theme
 // const theme = createTheme();
 
@@ -72,6 +74,11 @@ function App() {
               />
 
               <Route path="/order" element={<CustomerOrder />} />
+              <Route
+                path="/profile/business"
+                element={<BusinessProfile userData={userData} />}
+              />
+              <Route path="/tourdetail" element={<TourDetails />} />
             </Routes>
           </div>
         </BrowserRouter>

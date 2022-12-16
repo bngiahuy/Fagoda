@@ -21,11 +21,13 @@ import { logOut } from "helpers/firebase/auth";
 import Popup from 'reactjs-popup';
 import { Notifications } from "./Notifications";
 import { Messages } from "./Messages";
+import BaNaHill from "assets/Home/RightTab/BaNaHill.jpg";
 
 export const Header = ({ userData }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [enable, setEnable] = useState([true, true, true, true, true, true, true]);
+  const [searchResult, setSearchResult] = useState(false);
 
   useEffect(() => {
     if (pathname === "/home" || pathname === "/profile" || pathname === "/cancelled-order")
@@ -64,7 +66,7 @@ export const Header = ({ userData }) => {
           position: "fixed",
           left: "150px",
         }}
-        onClick={() => navigate("/profile")}
+        onClick={() => navigate(userData && userData.role === "business" ? "/profile/business" : "/profile")}
       >
         {userData.fullName}
       </Button>}
@@ -86,7 +88,55 @@ export const Header = ({ userData }) => {
             disableUnderline: true,
           }}
           placeholder="Tìm kiếm trên Fagoda"
+          onChange={(event) => setSearchResult(event.target.value === "" ? false : true)}
+          onBlur={() => setSearchResult(false)}
+          onFocus={(event) => setSearchResult(event.target.value === "" ? false : true)}
         />
+        {searchResult &&
+          <div className="searchResult">
+            <Button
+              fullwidth
+              startIcon={
+                <Avatar
+                  alt={""}
+                  src={AVT}
+                  sx={{ width: 30, height: 30 }}
+                />
+              }
+              style={{
+                textTransform: "none",
+                color: "black",
+                display: "flex",
+                justifyContent: "flex-start",
+                textAlign: "left"
+              }}
+            >
+              <div>
+                <span style={{ fontWeight: "bold", }}>Nguyễn Nhật Anh</span>
+              </div>
+            </Button>
+            <Button
+              fullwidth
+              startIcon={
+                <Avatar
+                  alt={""}
+                  src={BaNaHill}
+                  sx={{ width: 30, height: 30 }}
+                />
+              }
+              style={{
+                textTransform: "none",
+                color: "black",
+                display: "flex",
+                justifyContent: "flex-start",
+                textAlign: "left"
+              }}
+            >
+              <div>
+                <span style={{ fontWeight: "bold", }}>Bà Nà Hill - Đường lên tiên cảnh</span>
+              </div>
+            </Button>
+          </div>}
       </div>}
 
       {enable[2] &&
@@ -108,11 +158,11 @@ export const Header = ({ userData }) => {
         </Popup>}
 
       {enable[4] && <IconButton
-          style={{ position: "fixed", right: "120px" }}
-          onClick={() => navigate(userData && userData.role === "business" ? "/cancelled-order" : "/order")}
-        >
-          <img alt="cart" src={Cart} className="imageHeader" />
-        </IconButton>}
+        style={{ position: "fixed", right: "120px" }}
+        onClick={() => navigate(userData && userData.role === "business" ? "/cancelled-order" : "/order")}
+      >
+        <img alt="cart" src={Cart} className="imageHeader" />
+      </IconButton>}
 
       {enable[5] &&
         <Popup

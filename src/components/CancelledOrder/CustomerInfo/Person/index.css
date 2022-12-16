@@ -3,11 +3,9 @@
   border: 2px solid #d9d9d9;
   border-radius: 10px;
 }
-
-.information {
-  width: 100%;
+.email-phone div:nth-child(2) {
+  flex: 1;
 }
-
 .information p {
   font-size: 1.2em;
   font-weight: bold;

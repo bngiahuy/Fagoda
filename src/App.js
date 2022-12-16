@@ -14,6 +14,7 @@ import { SignUp } from "./components/SignUp";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "helpers/firebase/auth";
 import { getUserData } from "helpers/firebase/db";
+import BusinessProfile from "pages/BusinessProfile";
 // use default theme
 // const theme = createTheme();
 
@@ -72,6 +73,10 @@ function App() {
               />
 
               <Route path="/order" element={<CustomerOrder />} />
+              <Route
+                path="/profile/business"
+                element={<BusinessProfile userData={userData} />}
+              />
             </Routes>
           </div>
         </BrowserRouter>

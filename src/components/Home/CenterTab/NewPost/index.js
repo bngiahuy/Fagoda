@@ -1,8 +1,9 @@
-import { Avatar, Backdrop, Button, CircularProgress, IconButton, TextField } from "@mui/material";
+import { Avatar, Backdrop, Button, CircularProgress, IconButton, Switch, TextField } from "@mui/material";
 import Close from "assets/Home/CenterTab/close.png";
 import AVT from "assets/Home/CenterTab/user.png";
 import addMedia from "assets/Home/CenterTab/addMedia.png";
 import addTour from "assets/Home/CenterTab/addTour.png";
+import switchIcon from "assets/Home/CenterTab/switch.png";
 import React, { useState } from "react";
 
 export const NewPost = ({ userData, close }) => {
@@ -56,6 +57,7 @@ export const NewPost = ({ userData, close }) => {
 								{item.content}
 							</Button>
 						)}
+						<div style={{ fontSize: "13px", fontWeight: "bold" }}><Switch checkedIcon={<img src={switchIcon} style={{width:"20px"}}/>}/>Quảng cáo</div>
 					</div>
 				</div>
 			</div>

@@ -66,7 +66,7 @@ export const Header = ({ userData }) => {
           position: "fixed",
           left: "150px",
         }}
-        onClick={() => navigate("/profile")}
+        onClick={() => navigate(userData && userData.role === "business" ? "/profile/business" : "/profile")}
       >
         {userData.fullName}
       </Button>}

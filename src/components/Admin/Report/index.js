@@ -71,52 +71,18 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Member = () => {
+const Report = () => {
   const styles = useStyles();
   const [openModal, setOpenModal] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [deletePost, setDeletePost] = useState({});
   const [rows, setRows] = useState([
-    {
-      postName: "Chuyến phiêu lưu vào lòng đất",
-      author: "Nguyễn Hoàng Bảo Hùng",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Đường lên tiên cảnh",
-      author: "Nguyễn Xuân Mạnh",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "4 ngày 3 đêm tại Vịnh Hạ Long",
-      author: "Bùi Nguyễn Gia Huy",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Làng hoa Sa Đéc - Vườn quýt Hồng Lai",
-      author: "Hoàng Nhật Hà",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Tour du lịch Hà Nội - Hạ Long - Sa Pa",
-      author: "Nguyễn Nhật Anh",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Khám phá Nha Trang 3 ngày 2 đêm",
-      author: "Nguyễn Hoàng Bảo Hùng",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Cắm trại 2 ngày 1 đêm Hồ Tiên - La Ngâu",
-      author: "Nguyễn Xuân Mạnh",
-      latestEditTime: "1 giây trước",
-    },
-    {
-      postName: "Tour du lịch khám phá Tây Nguyên 3 ngày 2 đêm",
-      author: "Bùi Nguyễn Gia Huy",
-      latestEditTime: "1 giây trước",
-    },
+    {id: 7282, color: 'green', status: "Đã xử lý", sender: 'Nguyễn Xuân Mạnh', post: "Khám phá Nha Trang 3 ngày 2 đêm", content: "Tour đã hết hạn", handler: 'Hoàng Nhật Hà'},
+    {id: 7283, color: 'yellow', status: "Đang xử lý", sender: 'Nguyễn Tuấn Anh', post: "Cắm trại 2 ngày 1 đêm Hồ Tiên - La Ngâu", content: "Tour đã hết chỗ", handler: 'Hoàng Nhật Hà'},
+    {id: 7284, color: 'red', status: "Chưa xử lý", sender: 'Vũ Minh Đức', post: "Khám phá Nha Trang 3 ngày 2 đêm", content: "Tour đã hết hạn", handler: ''},
+    {id: 7282, color: 'green', status: "Đã xử lý", sender: 'Nguyễn Xuân Mạnh', post: "Khám phá Nha Trang 3 ngày 2 đêm", content: "Tour đã hết hạn", handler: 'Hoàng Nhật Hà'},
+    {id: 7283, color: 'yellow', status: "Đang xử lý", sender: 'Nguyễn Tuấn Anh', post: "Cắm trại 2 ngày 1 đêm Hồ Tiên - La Ngâu", content: "Tour đã hết thời hạn đăng ký", handler: 'Hoàng Nhật Hà'},
+    {id: 7284, color: 'red', status: "Chưa xử lý", sender: 'Vũ Minh Đức', post: "Khám phá Nha Trang 3 ngày 2 đêm", content: "Tôi không thể đăng ký được tour cho gia đình tôi.", handler: ''},
   ]);
   const handleDelete = (row) => {
     setRows(rows.filter((_row) => _row !== row));
@@ -124,18 +90,26 @@ const Member = () => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
-        <h3 className={styles.title}>BÀI VIẾT</h3>
+        <h3 className={styles.title}>
+          BÁO CÁO
+        </h3>
       </div>
       <div className={styles.content}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead sx={{ backgroundColor: "#90E0EF" }}>
               <TableRow>
-                <TableCell style={{ width: "40%" }}>Tên</TableCell>
-                <TableCell align="left">Tác giả</TableCell>
-                <TableCell align="left">Chỉnh sửa gần nhất</TableCell>
-                <TableCell align="left" style={{ width: "120px" }}>
-                  Action
+                <TableCell style={{  }}>ID</TableCell>
+                <TableCell align="left">Trạng thái</TableCell>
+                <TableCell align="left">Người báo cáo</TableCell>
+                <TableCell align="left" style={{ }}>
+                  Bài viết
+                </TableCell>
+                <TableCell align="left" style={{ }}>
+                  Nội dung
+                </TableCell>
+                <TableCell align="left" style={{ }}>
+                  Người xử lý
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -145,10 +119,17 @@ const Member = () => {
                   {/* <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell> */}
-                  <TableCell align="left">{row.postName}</TableCell>
-                  <TableCell align="left">{row.author}</TableCell>
-                  <TableCell align="left">{row.latestEditTime}</TableCell>
-                  <div className={styles.actionButtonContainer}>
+                  <TableCell align="left" style={{ width: '5%' }}>#{row.id}</TableCell>
+                  <TableCell align="left" style={{ width: '10%' }}>
+                    {row.status === 'Đã xử lý' && <p style={{backgroundColor: "#2984FF", color: "white", padding: '2px'}}>{row.status}</p>}
+                    {row.status === 'Đang xử lý' && <p style={{backgroundColor: "#aaa", color: "white", padding: '2px'}}>{row.status}</p>}
+                    {row.status === 'Chưa xử lý' && <p style={{backgroundColor: "red", color: "white", padding: '2px'}}>{row.status}</p>}
+                  </TableCell>
+                  <TableCell align="left" style={{ width: '15%' }}>{row.sender}</TableCell>
+                  <TableCell align="left" style={{ width: '20%' }}>{row.post}</TableCell>
+                  <TableCell align="left" style={{ width: '25%' }}>{row.content}</TableCell>
+                  <TableCell align="left" style={{ width: '15%' }}>{row.handler}</TableCell>
+                  {/* <div className={styles.actionButtonContainer}>
                     <IconButton onClick={() => setOpenModal(true)}>
                       <img
                         className={styles.actionButton}
@@ -175,7 +156,7 @@ const Member = () => {
                         alt="EditIcon"
                       />
                     </IconButton>
-                  </div>
+                  </div> */}
                 </TableRow>
               ))}
             </TableBody>
@@ -225,4 +206,4 @@ const Member = () => {
   );
 };
 
-export default Member;
+export default Report;

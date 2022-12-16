@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Button } from '@mui/material';
 import Avatar from '../../assets/Header/user.png';
@@ -71,7 +71,14 @@ const useStyles = makeStyles(() => ({
 
 const Admin = () => {
   const styles = useStyles();
+  const [date, setDate] = useState(new Date());
   const [page, setPage] = useState("MainPage");
+  
+  const time = () => {
+    setDate(new Date());
+  }
+  setInterval(time, 1000) 
+
   return (
     <div className={styles.container}>
       {/* <Header/> */}
@@ -124,10 +131,10 @@ const Admin = () => {
 
           <div className={styles.date}>
             <p>
-              {new Date().toLocaleTimeString()}
+              {date.toLocaleTimeString()}
             </p>
             <p>
-              {new Date().toLocaleDateString()}
+              {date.toLocaleDateString()}
             </p>
           </div>
         </div>

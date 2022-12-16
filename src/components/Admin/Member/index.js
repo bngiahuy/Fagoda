@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useNavigate } from "react-router-dom";
 //icons
 import { IconButton } from "@mui/material";
 import ShowIcon from "../../../assets/Admin/show.png";
@@ -69,6 +70,7 @@ const useStyles = makeStyles(() => ({
 
 const Member = () => {
   const styles = useStyles();
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [deletePost, setDeletePost] = useState({});
@@ -136,7 +138,7 @@ const Member = () => {
                   <TableCell align="left">{row.role}</TableCell>
                   <TableCell align="left">{row.latestAccessTime}</TableCell>
                   <div className={styles.actionButtonContainer}>
-                    <IconButton>
+                    <IconButton onClick={() => navigate('/profile')}>
                       <img
                         className={styles.actionButton}
                         src={ShowIcon}
@@ -195,7 +197,7 @@ const Member = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Bạn có chắc chắn là sẽ xoá bài viết không?
+            Bạn có chắc chắn là sẽ xoá người dùng không?
           </DialogContentText>
         </DialogContent>
         <DialogActions>

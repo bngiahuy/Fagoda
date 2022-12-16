@@ -36,12 +36,6 @@
     "postinstall": "link-module-alias",
     "preinstall": "link-module-alias clean"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

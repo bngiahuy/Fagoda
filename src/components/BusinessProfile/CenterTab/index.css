@@ -335,7 +335,7 @@
   width: 150px;
 } */
 
-.review {
+.review__profile {
   display: flex;
   align-items: center;
   gap: 20px;

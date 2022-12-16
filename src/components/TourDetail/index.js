@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 import img from "assets/TourDetail/TourDetail.png";
-import { Filter } from '../Home/CenterTab/Filter';
+// import { Filter } from '../Home/CenterTab/Filter';
 import "./index.css";
 import filledStar from "assets/Home/CenterTab/filledStar.png";
 import emptyStar from "assets/Home/CenterTab/emptyStar.png";
 import avt from "assets/Header/user.png";
 import { Avatar, Button } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
-import { orange } from '@mui/material/colors';
+// import { useNavigate } from 'react-router-dom';
+// import { orange } from '@mui/material/colors';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -36,7 +36,7 @@ const tourData = {
 
 export const TourDetail = () => {
     const star = [0, 0, 0, 0, 0].fill(1, 0, Math.round(tourData.rating));
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [numOfAdults, setNumOfAdults] = useState(0);
     const [numOfChildren, setNumOfChildren] = useState(0);
     const [date, setDate] = useState(null);
@@ -50,7 +50,7 @@ export const TourDetail = () => {
     };
     return (
         <div className="container">
-            < Filter />
+            {/* < Filter /> */}
             <div className="content">
                 <div className="title-container">
                     <div className="type-of-tour">{tourData.type}</div>

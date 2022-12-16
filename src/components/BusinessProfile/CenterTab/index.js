@@ -21,6 +21,7 @@ import filledStar from "assets/Home/CenterTab/filledStar.png";
 import emptyStar from "assets/Home/CenterTab/emptyStar.png";
 import calendar from "assets/CancelledOrder/calendar.png";
 import { DataGrid } from "@mui/x-data-grid";
+import { useNavigate } from 'react-router-dom';
 
 const CenterTab = ({ userData }) => {
   const star = [1, 1, 1, 0];
@@ -39,7 +40,7 @@ const CenterTab = ({ userData }) => {
   };
   const tours = [1, 1, 1, 1, 1];
   const [posts, setPosts] = useState([]);
-
+  const navigate = useNavigate();
   const [value, setValue] = React.useState(dayjs("2014-08-18T21:11:54"));
 
   const handleChange = (newValue) => {
@@ -76,7 +77,7 @@ const CenterTab = ({ userData }) => {
                 >
                   Công ty ABC
                 </p>
-                <div className="review">
+                <div className="review__profile">
                   <div className="company-star">
                     {star.map((item) => (
                       <img
@@ -276,6 +277,7 @@ const CenterTab = ({ userData }) => {
                     alignItems: "flex-start",
                   }}
                   fullWidth
+                  onClick={() => navigate("/tourdetail")}
                 >
                   <div>
                     Tour 6 ngày 7 đêm - Khởi hành: Thứ 2 hàng tuần - Phương

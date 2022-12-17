@@ -4,6 +4,7 @@ import { Button, TextField, Radio, RadioGroup, FormControl, FormControlLabel } f
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import Card from "assets/Payment/Card.png";
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -37,6 +38,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const OfflinePayment = () => {
+    const navigate = useNavigate();
     const styles = useStyles();
     const [date, setDate] = useState(null);
     return (
@@ -57,7 +59,7 @@ export const OfflinePayment = () => {
                         borderRadius: "10px",
                         textTransform: "none",
                         fontSize: "18px",
-                    }}>Xác nhận thanh toán</Button>
+                    }} onClick={() => navigate("/home")}>Xác nhận thanh toán</Button>
                 </div>
             </div>
         </div>

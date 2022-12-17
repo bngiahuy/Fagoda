@@ -36,14 +36,26 @@ const useStyles = makeStyles(() => ({
 
 const Activity = () => {
   var FileSaver = require('file-saver');
-  const styles = useStyles("Xuất hoạt động lúc: ", Date.now());
-  const [content, setContent] = useState('');
+  const styles = useStyles('hello');
+  const date = new Date().toLocaleDateString()
+  const [content, setContent] = useState(`#13634 12:00:00, 12/12/2002: Nguyễn Thanh Hải đăng bài viết ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13635 12:00:00, 13/12/2022: Nguyễn Xuân Mạnh bình chọn ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13636 12:00:00, 14/12/2022: Nguyễn Hoàng Bảo Hùng thêm vào giỏ hàng ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13637 12:00:00, 15/12/2022: Nguyễn Hoàng Bảo Hùng thanh toán ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13638 12:00:00, 16/12/2022: Nguyễn Thanh Hải đăng bài viết ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13639 12:00:00, 17/12/2022: Nguyễn Xuân Mạnh bình chọn ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13640 12:00:00, 17/12/2022: Nguyễn Hoàng Bảo Hùng thêm vào giỏ hàng ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13641 12:00:00, 17/12/2022: Nguyễn Hoàng Bảo Hùng thanh toán ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13642 12:00:00, 17/12/2022: Nguyễn Thanh Hải đăng bài viết ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13643 12:00:00, 17/12/2022: Nguyễn Xuân Mạnh bình chọn ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13644 12:00:00, 17/12/2022: Huỳnh Hoàng Khang thêm vào giỏ hàng ở bài viết Khám phá Nha Trang 3 ngày 2 đêm
+#13645 12:00:00, 17/12/2022: Huỳnh Hoàng Khang thanh toán ở bài viết Khám phá Nha Trang 3 ngày 2 đêm`);
   const [value, setValue] = useState();
   const [activities, setActivities] = useState([
     {
       id: 13634,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "12/12/2002",
       type: "đăng bài viết",
       user: "Nguyễn Thanh Hải",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
@@ -51,7 +63,7 @@ const Activity = () => {
     {
       id: 13635,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "13/12/2022",
       type: "bình chọn",
       user: "Nguyễn Xuân Mạnh",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
@@ -59,7 +71,7 @@ const Activity = () => {
     {
       id: 13636,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "14/12/2022",
       type: "thêm vào giỏ hàng",
       user: "Nguyễn Hoàng Bảo Hùng",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
@@ -67,71 +79,71 @@ const Activity = () => {
     {
       id: 13637,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "15/12/2022",
       type: "thanh toán",
       user: "Nguyễn Hoàng Bảo Hùng",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13634,
+      id: 13638,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "16/12/2022",
       type: "đăng bài viết",
       user: "Nguyễn Thanh Hải",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13635,
+      id: 13639,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "bình chọn",
       user: "Nguyễn Xuân Mạnh",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13636,
+      id: 13640,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "thêm vào giỏ hàng",
       user: "Nguyễn Hoàng Bảo Hùng",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13637,
+      id: 13641,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "thanh toán",
       user: "Nguyễn Hoàng Bảo Hùng",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13634,
+      id: 13642,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "đăng bài viết",
       user: "Nguyễn Thanh Hải",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13635,
+      id: 13643,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "bình chọn",
       user: "Nguyễn Xuân Mạnh",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13636,
+      id: 13644,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "thêm vào giỏ hàng",
       user: "Huỳnh Hoàng Khang",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
     },
     {
-      id: 13637,
+      id: 13645,
       time: "12:00:00",
-      date: "16/12/2002",
+      date: "17/12/2022",
       type: "thanh toán",
       user: "Huỳnh Hoàng Khang",
       post: "Khám phá Nha Trang 3 ngày 2 đêm",
@@ -167,7 +179,7 @@ const Activity = () => {
         {activities.map((activity) => (
           <p style={{margin: 15}}>
             #{activity.id} {activity.time}, {activity.date}: {activity.user} {" "} 
-          <b style={{ color: "#00B4D8" }}>{activity.type}</b> on{" "}
+          <b style={{ color: "#00B4D8" }}>{activity.type}</b> ở bài viết{" "}
             <i>{activity.post}</i>
           </p>
         ))}

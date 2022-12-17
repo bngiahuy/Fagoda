@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useNavigate } from "react-router-dom";
 //icons
 import { IconButton } from "@mui/material";
 import ShowIcon from "../../../assets/Admin/show.png";
@@ -73,6 +74,7 @@ const useStyles = makeStyles(() => ({
 
 const Report = () => {
   const styles = useStyles();
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [deletePost, setDeletePost] = useState({});
@@ -126,9 +128,21 @@ const Report = () => {
                     {row.status === 'Chưa xử lý' && <p style={{backgroundColor: "red", color: "white", padding: '2px'}}>{row.status}</p>}
                   </TableCell>
                   <TableCell align="left" style={{ width: '15%' }}>{row.sender}</TableCell>
-                  <TableCell align="left" style={{ width: '20%' }}>{row.post}</TableCell>
+                  <TableCell align="left" style={{ width: '20%' }}>
+                      {row.post}
+                  </TableCell>
                   <TableCell align="left" style={{ width: '25%' }}>{row.content}</TableCell>
-                  <TableCell align="left" style={{ width: '15%' }}>{row.handler}</TableCell>
+                  <TableCell align="left" style={{ width: '15%' }}>
+                    {row.handler !== '' && row.handler}
+                    {row.handler === '' && <Button 
+                      variant="outlined" 
+                      color="error" 
+                      onClick={() => navigate('/tourdetail')}
+                    >
+                        Xử lý
+                      </Button>
+                    }
+                  </TableCell>
                   {/* <div className={styles.actionButtonContainer}>
                     <IconButton onClick={() => setOpenModal(true)}>
                       <img

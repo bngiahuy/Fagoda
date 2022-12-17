@@ -16,6 +16,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "helpers/firebase/auth";
 import { getUserData } from "helpers/firebase/db";
 import BusinessProfile from "pages/BusinessProfile";
+import { Payment } from "./components/Payment";
+import { OnlinePayment } from "components/Payment/OnlinePayment";
+import { OfflinePayment } from "components/Payment/OfflinePayment";
 // use default theme
 // const theme = createTheme();
 
@@ -79,6 +82,9 @@ function App() {
                 element={<BusinessProfile userData={userData} />}
               />
               <Route path="/tourdetail" element={<TourDetails />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/online-payment" element={<OnlinePayment />} />
+              <Route path="/offline-payment" element={<OfflinePayment />} />
             </Routes>
           </div>
         </BrowserRouter>

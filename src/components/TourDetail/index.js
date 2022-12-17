@@ -6,11 +6,14 @@ import "./index.css";
 import filledStar from "assets/Home/CenterTab/filledStar.png";
 import emptyStar from "assets/Home/CenterTab/emptyStar.png";
 import avt from "assets/Header/user.png";
-import { Avatar, Button } from "@mui/material";
-// import { useNavigate } from 'react-router-dom';
+import { Avatar, Button, TextField } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 // import { orange } from '@mui/material/colors';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import Plane from "assets/TourDetail/plane.png";
+import Locate from "assets/TourDetail/pin.png";
+import Room from "assets/TourDetail/room.png";
 
 const tourData = {
     tourID: "TO1862",
@@ -36,7 +39,7 @@ const tourData = {
 
 export const TourDetail = () => {
     const star = [0, 0, 0, 0, 0].fill(1, 0, Math.round(tourData.rating));
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [numOfAdults, setNumOfAdults] = useState(0);
     const [numOfChildren, setNumOfChildren] = useState(0);
     const [date, setDate] = useState(null);
@@ -140,7 +143,7 @@ export const TourDetail = () => {
                                     fontWeight: "bold",
                                     backgroundColor: "orange",
                                     color: "white",
-                                }}>Đặt ngay</Button>
+                                }} onClick={() => navigate("/payment")}>Đặt ngay</Button>
                                 <Button style={{
                                     marginTop: "10px",
                                     fontSize: "15px",
@@ -183,9 +186,9 @@ export const TourDetail = () => {
 
                                 </div>
                                 <select value={vehicle} onChange={handleChangeVehicle} style={{ width: "80px" }}>
-                                    <option value="Plane">Plane</option>
-                                    <option value="Bus">Bus</option>
-                                    <option value="Train">Train</option>
+                                    <option value="Máy bay">Máy bay</option>
+                                    <option value="Xe khách">Xe khách</option>
+                                    <option value="Tàu hỏa">Tàu hỏa</option>
                                 </select>
                             </div>
                             <div className='room-box'>
@@ -203,7 +206,16 @@ export const TourDetail = () => {
                         <div className="date-to-start">
                             Ngày khởi hành:
                         </div>
-                        <DatePicker selected={date} onChange={(selectedDate) => setDate(selectedDate)} />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                value={date}
+                                onChange={(newValue) => {
+                                    setDate(newValue);
+                                }}
+                                renderInput={(params) => <TextField size="small" {...params} />}
+                                inputFormat="DD/MM/YYYY"
+                            />
+                        </LocalizationProvider>
                         <div className="total-price">
                             Tổng tiền: <span style={{
                                 textAlign: "right",
@@ -216,15 +228,184 @@ export const TourDetail = () => {
                 </div>
                 <span style={{ fontWeight: "bold", color: "black", fontSize: "15px", marginTop: "20px" }} >Chương trình tour</span>
                 <div className='tour-details'>
-                    <span style={{ fontWeight: "bold", color: "black", fontSize: "13px", marginLeft: "10px" }} >Lịch trình</span>
+                    <div className='detail'>
+                        <span style={{ fontWeight: "bold", color: "black", fontSize: "14px", marginLeft: "10px" }} >Lịch trình</span>
+                        <span style={{ fontWeight: "bold", color: "#A71717", fontSize: "13px", marginLeft: "10px", marginTop: "10px" }}>Day 1 - TP.HỒ CHÍ MINH - NARITA</span>
+                        <div className="detail-in-day">Tối 20h40: Quý khách có mặt tại sân bay quốc tế Tân Sơn Nhất, Trưởng đoàn hướng dẫn Quý khách làm thủ tục đáp chuyến bay VJ822 bay chuyến 23:40 đi Narita. Đoàn nghỉ đêm trên máy bay.</div>
+                        <span style={{ fontWeight: "bold", color: "#A71717", fontSize: "13px", marginLeft: "10px", marginTop: "10px" }}>Day 2 - TP.HỒ CHÍ MINH - NARITA</span>
+                        <div className="detail-in-day">Tối 20h40: Quý khách có mặt tại sân bay quốc tế Tân Sơn Nhất, Trưởng đoàn hướng dẫn Quý khách làm thủ tục đáp chuyến bay VJ822 bay chuyến 23:40 đi Narita. Đoàn nghỉ đêm trên máy bay.</div>
+                        <span style={{ fontWeight: "bold", color: "#A71717", fontSize: "13px", marginLeft: "10px", marginTop: "10px" }}>Day 3 - TP.HỒ CHÍ MINH - NARITA</span>
+                        <div className="detail-in-day">Tối 20h40: Quý khách có mặt tại sân bay quốc tế Tân Sơn Nhất, Trưởng đoàn hướng dẫn Quý khách làm thủ tục đáp chuyến bay VJ822 bay chuyến 23:40 đi Narita. Đoàn nghỉ đêm trên máy bay.</div>
+                        <span style={{ fontWeight: "bold", color: "#A71717", fontSize: "13px", marginLeft: "10px", marginTop: "10px" }}>Day 4 - TP.HỒ CHÍ MINH - NARITA</span>
+                        <div className="detail-in-day">Tối 20h40: Quý khách có mặt tại sân bay quốc tế Tân Sơn Nhất, Trưởng đoàn hướng dẫn Quý khách làm thủ tục đáp chuyến bay VJ822 bay chuyến 23:40 đi Narita. Đoàn nghỉ đêm trên máy bay.</div>
+                        <div className="button-more">
+                            <Button style={{
+                                backgroundColor: "#2984FF",
+                                color: "white",
+                                textTransform: "none",
+                                fontSize: "12px",
+                                fontWeight: "bold",
+                                width: "100px",
+                                marginTop: "10px"
+                            }}>Xem Thêm</Button>
+                        </div>
+                    </div>
+                    <div className="contain">
+                        <div className="contain-tour">
+                            <div className="contain-tour-infor">
+                                <span style={{ fontWeight: "bold" }}>Xuất phát:</span> <img src={Locate} alt="plane" style={{ width: "15px", height: "15px" }}></img> Hồ Chí Minh
+                            </div>
+                            <div className="contain-tour-infor">
+                                <span style={{ fontWeight: "bold" }}>Độ dài:</span> 6 Ngày - 7 Đêm
+                            </div>
+                            <div className="contain-tour-infor">
+                                <span style={{ fontWeight: "bold" }}>Phương tiện:</span> <img src={Plane} alt="plane" style={{ width: "15px", height: "15px" }}></img> Máy bay
+                            </div>
+                        </div>
+                        <div className="contain-service">
+                            Dịch vụ bao gồm
+                            <ul className="contain-list">
+                                <li>Bảo hiểm </li>
+                                <li>Bữa ăn </li>
+                                <li>Hướng dẫn viên </li>
+                                <li>Khách sạn 3-4* </li>
+                                <li>Vé máy bay </li>
+                                <li>Vé tham quan </li>
+                                <li>Visa </li>
+                                <li>Xe đưa đón </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <span style={{ fontWeight: "bold", color: "black", fontSize: "15px", marginTop: "20px" }} >Loại phòng ở</span>
                 <div className="type-of-room">
-
+                    <div className="room-detail">
+                        <span style={{ fontWeight: "bold", color: "#A90909", fontSize: "13px", textAlign: "center" }}>LOẠI 1</span>
+                        <img src={Room} alt="room" style={{ margin: "10px" }}></img>
+                        <span style={{ fontWeight: "bold", color: "#333D5E", fontSize: "13px", margin: "10px", marginTop: "0" }}>President Suite Balcony</span>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Kích thước:</span> 70m2</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Giường:</span> 1 Giường đôi + 2 Giường đơn</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Số khách tối đa:</span> 4</div>
+                    </div>
+                    <div className="room-detail">
+                        <span style={{ fontWeight: "bold", color: "#A90909", fontSize: "13px", textAlign: "center" }}>LOẠI 2</span>
+                        <img src={Room} alt="room" style={{ margin: "10px" }}></img>
+                        <span style={{ fontWeight: "bold", color: "#333D5E", fontSize: "13px", margin: "10px", marginTop: "0" }}>Mon Cheri Suite Balcony</span>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Kích thước:</span> 40m2</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Giường:</span> 1 Giường đôi</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Số khách tối đa:</span> 2</div>
+                    </div>
+                    <div className="room-detail">
+                        <span style={{ fontWeight: "bold", color: "#A90909", fontSize: "13px", textAlign: "center" }}>LOẠI 3</span>
+                        <img src={Room} alt="room" style={{ margin: "10px" }}></img>
+                        <span style={{ fontWeight: "bold", color: "#333D5E", fontSize: "13px", margin: "10px", marginTop: "0" }}>Family Suite Connecting</span>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Kích thước:</span> 70m2</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Giường:</span> 2 Giường đôi</div>
+                        <div style={{ marginLeft: "10px" }}><span style={{ fontWeight: "bold" }}>Số khách tối đa:</span> 4</div>
+                    </div>
                 </div>
                 <span style={{ fontWeight: "bold", color: "black", fontSize: "15px", marginTop: "20px" }} >Đánh giá</span>
                 <div className="review">
+                    <div className='total-review'>
+                        <div className="review-box">
+                            <div style={{ fontWeight: "600", fontSize: "20px" }}>Tuyệt vời</div>
+                            <span style={{ fontWeight: "bold", color: "#048E5C", fontSize: "25px" }}>4/5</span>
+                            <div className='review-star'>
+                                {star.map((item, index) =>
+                                    <img key={index} alt="filledStar" src={item ? filledStar : emptyStar} className="rating-star" />
+                                )}
+                            </div>
+                        </div>
+                        <div className="number-review">
+                            <span style={{ color: "#F89E34", fontWeight: "bold" }}>30</span> lượt đánh giá
+                        </div>
+                    </div>
+                    <div className="content-review">
+                        <div className="number-review">
+                            <span style={{ color: "#A71717", fontWeight: "bold" }}>25</span> bình luận
+                        </div>
 
+                        <div className='comment'>
+                            <div className='review-star'>
+                                {star.map((item, index) =>
+                                    <img key={index} alt="filledStar" src={item ? filledStar : emptyStar} className="rating-star" />
+                                )}
+                            </div>
+                            <div className="host-name">
+                                <Button
+                                    startIcon={
+                                        <Avatar alt="avatar" src={avt} sx={{ width: 20, height: 20 }} />
+                                    }
+                                    style={{
+                                        fontSize: "12px",
+                                        textTransform: "none",
+                                        color: "black",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Bình Phương
+                                </Button>
+                            </div>
+                            <div style={{ fontSize: "12px" }}>It is a nice tour as they will bring you to a good apot for picture that is less crowded. </div>
+                        </div>
+                        <div className='comment'>
+                            <div className='review-star'>
+                                {star.map((item, index) =>
+                                    <img key={index} alt="filledStar" src={item ? filledStar : emptyStar} className="rating-star" />
+                                )}
+                            </div>
+                            <div className="host-name">
+                                <Button
+                                    startIcon={
+                                        <Avatar alt="avatar" src={avt} sx={{ width: 20, height: 20 }} />
+                                    }
+                                    style={{
+                                        fontSize: "12px",
+                                        textTransform: "none",
+                                        color: "black",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Liêm Linh
+                                </Button>
+                            </div>
+                            <div style={{ fontSize: "12px" }}>It is a nice tour as they will bring you to a good apot for picture that is less crowded. </div>
+                        </div>
+                        <div className='comment'>
+                            <div className='review-star'>
+                                {star.map((item, index) =>
+                                    <img key={index} alt="filledStar" src={item ? filledStar : emptyStar} className="rating-star" />
+                                )}
+                            </div>
+                            <div className="host-name">
+                                <Button
+                                    startIcon={
+                                        <Avatar alt="avatar" src={avt} sx={{ width: 20, height: 20 }} />
+                                    }
+                                    style={{
+                                        fontSize: "12px",
+                                        textTransform: "none",
+                                        color: "black",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    Quyên Cam
+                                </Button>
+                            </div>
+                            <div style={{ fontSize: "12px" }}>It is a nice tour as they will bring you to a good apot for picture that is less crowded. </div>
+                        </div>
+                        <div className="button-more">
+                            <Button style={{
+                                backgroundColor: "#20C19B",
+                                color: "white",
+                                textTransform: "none",
+                                fontSize: "12px",
+                                fontWeight: "bold",
+                                width: "100px",
+                                marginTop: "10px"
+                            }}>Xem Thêm</Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div >

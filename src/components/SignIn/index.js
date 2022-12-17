@@ -156,7 +156,8 @@ export const SignIn = () => {
 					}}
 					onClick={() =>
 						signIn(data).then((user) => {
-							if (user) navigate("/home");
+							if (user.email === "admin@fagoda.com") navigate("/admin");
+							else navigate("/home");
 						})
 					}
 				>

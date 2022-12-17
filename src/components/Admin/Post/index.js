@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import Pagination from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
@@ -23,6 +23,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+
+import { getNewfeed } from "helpers/firebase/db";
+import { Post } from "./posts";
+
 
 const useStyles = makeStyles(() => ({
   container: {},
@@ -76,6 +80,15 @@ const Member = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [deletePost, setDeletePost] = useState({});
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setPosts(await getNewfeed());
+    };
+
+    fetchData();
+  }, [])
   const [rows, setRows] = useState([
     {
       postName: "Chuyến phiêu lưu vào lòng đất",
@@ -192,8 +205,8 @@ const Member = () => {
         aria-describedby="modal-modal-description"
       >
         <Box className={styles.box}>
-          <div style={{ width: "600px" }}>
-            {/* <h2 className={styles.title}>[NHẬT BẢN - ĐỊA ĐIỂM ĐƯỢC YÊU THÍCH NHẤT NĂM 2069]</h2> */}
+          <div style={{ width: "600px", margin: '0 auto'}}>
+            {posts.map((item) => <Post key={item.pid} post={item} userData={null}/>)}
           </div>
         </Box>
       </Modal>

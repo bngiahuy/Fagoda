@@ -4,6 +4,7 @@ import { Button, TextField, Radio, RadioGroup, FormControl, FormControlLabel } f
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import Card from "assets/Payment/Card.png";
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -62,6 +63,7 @@ const useStyles = makeStyles(() => ({
 export const OnlinePayment = () => {
     const styles = useStyles();
     const [date, setDate] = useState(null);
+    const navigate = useNavigate();
     return (
         <div className={styles.container}>
             <div className={styles.title}>Hình thức thanh toán trực tuyến</div>
@@ -147,7 +149,7 @@ export const OnlinePayment = () => {
                     borderRadius: "10px",
                     textTransform: "none",
                     fontSize: "18px",
-                }}>Xác nhận thanh toán</Button>
+                }} onClick={() => navigate("/home")}>Xác nhận thanh toán</Button>
             </div>
         </div>
     );

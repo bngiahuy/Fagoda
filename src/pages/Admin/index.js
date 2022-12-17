@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
     display: 'grid',
     gridTemplateColumns: '200px 1fr',
   },
-  asideContainer:{
+  asideContainer: {
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     height: "100px",
     backgroundColor: "#90E0EF",
   },
-  avatar:{
+  avatar: {
     width: "50px",
     height: "50px",
     margin: "auto",
@@ -69,23 +69,24 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Admin = () => {
+const Admin = ({ userData }) => {
   const styles = useStyles();
   const [date, setDate] = useState(new Date());
   const [page, setPage] = useState("MainPage");
-  
+
   const time = () => {
     setDate(new Date());
   }
-  setInterval(time, 1000) 
+  setInterval(time, 1000)
 
   return (
-    <div className={styles.container}>
+    <>
+    {userData && userData.role === "admin" && <div className={styles.container}>
       {/* <Header/> */}
       <div className={styles.asideContainer}>
         <div className={styles.infoContainer}>
           <img className={styles.avatar} src={Avatar} alt='avatar' />
-          <div style={{margin: "0 auto"}}>
+          <div style={{ margin: "0 auto" }}>
             <h3 className={styles.name}>ADMIN</h3>
             <Button variant='contained' color='primary' className={styles.editButton}>Sửa</Button>
           </div>
@@ -94,37 +95,37 @@ const Admin = () => {
         <div className={styles.navButtonContainer}>
           <Button className={styles.button}
             onClick={() => setPage('MainPage')}
-            variant={page==='MainPage' ? "contained" : 'nul'}
+            variant={page === 'MainPage' ? "contained" : 'nul'}
           >
             Trang chủ
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Member')}
-            variant={page==='Member' ? "contained" : 'nul'}
+            variant={page === 'Member' ? "contained" : 'nul'}
           >
             Thành viên
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Post')}
-            variant={page==='Post' ? "contained" : 'nul'}
+            variant={page === 'Post' ? "contained" : 'nul'}
           >
             Bài viết
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Activity')}
-            variant={page==='Activity' ? "contained" : 'nul'}
+            variant={page === 'Activity' ? "contained" : 'nul'}
           >
             Hoạt động
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Analysis')}
-            variant={page==='Analysis' ? "contained" : 'nul'}
+            variant={page === 'Analysis' ? "contained" : 'nul'}
           >
             Phân tích
           </Button>
           <Button className={styles.button}
             onClick={() => setPage('Report')}
-            variant={page==='Report' ? "contained" : 'nul'}
+            variant={page === 'Report' ? "contained" : 'nul'}
           >
             Báo cáo
           </Button>
@@ -138,15 +139,16 @@ const Admin = () => {
             </p>
           </div>
         </div>
-        
+
       </div>
       {page === 'MainPage' && <MainPage />}
-      {page === 'Member'   && <Member />}
-      {page === 'Post'     && <Post />}
-      {page === 'Activity'   && <Activity />}
+      {page === 'Member' && <Member />}
+      {page === 'Post' && <Post />}
+      {page === 'Activity' && <Activity />}
       {page === 'Analysis' && <Analysis />}
-      {page === 'Report'    && <Report />}
-    </div>
+      {page === 'Report' && <Report />}
+    </div>}
+    </>
   );
 }
 

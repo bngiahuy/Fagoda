@@ -60,7 +60,7 @@ function App() {
               <Route path="/" element={<Navigate to="/home" replace />}></Route>
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/admin" element={<Admin />} />
+              <Route path="/admin" element={<Admin userData={userData} />} />
               <Route path="/home" element={<Home userData={userData} />} />
               <Route
                 path="/profile"
